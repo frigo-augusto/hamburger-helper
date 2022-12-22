@@ -1,0 +1,22 @@
+section{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    height: 800px;
+    transform: translate(-50%, -50%);
+    background-color: yellow;
+}
+
+h1{
+    font-size: 60px;
+}
+
+#buttons-container{
+    font-size: 3em;
+}
+
+button{
+    background-color: red;
+    color: white;
+}
