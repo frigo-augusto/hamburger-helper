@@ -1,0 +1,20 @@
+#category-container{
+    width: 25%;
+}
+
+.category-button{
+    font-size: 1em;
+}
+
+#return-container{
+    text-align: right;
+}
+
+#return-button{
+    font-size: 1.5em;
+}
+
+#table-container{
+    width: 95%;
+    height: 95%;
+}

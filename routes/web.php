@@ -15,10 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 
 Route::get('/atendente', function(){
-    return view('atendente');
+    return view('atendente.main');
 })->name('atendente');
 
 Route::get('/cozinheiro', function(){
@@ -30,7 +30,18 @@ Route::get('/caixa', function(){
 })->name('caixa');
 
 Route::get('/atendente-adicionar', function(){
-    return "nao implementado";
+    for($i = 1; $i <= 10; $i++){
+        $hamburger[$i-1] = new \stdClass();
+        $bebida[$i-1] = new \stdClass();
+        $hamburger[$i-1]->id = $i;
+        $hamburger[$i-1]->nome = "hamburger" . $i;
+        $bebida[$i-1]->id = $i;
+        $bebida[$i-1]->nome = "bebida". $i;
+    }
+    return view('atendente.adicionar', [
+        "hamburger" =>  $hamburger,
+        "bebida" => $bebida
+    ]);
 })->name('atendente.adicionar');
 
 Route::get('/atendente-editar', function(){

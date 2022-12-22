@@ -1,10 +1,16 @@
 section{
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    margin-left: auto;
+    margin-right: auto;
     width: 600px;
     height: 800px;
-    transform: translate(-50%, -50%);
+}
+
+#return-container{
+    text-align: right;
+}
+
+#return-button{
+    font-size: 1.5em;
 }
 
 h1{
@@ -18,5 +24,4 @@ h1{
 .btn-danger{
     font-size: 1.5em;
 }
-
 
