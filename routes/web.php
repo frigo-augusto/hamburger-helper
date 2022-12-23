@@ -18,8 +18,9 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
-Route::get('/atendente', function(){
-    return view('atendente.main');
+Route::get('/atendente/{errors?}', function($errors=null){
+    return view('atendente.main', [
+        "errors" => $errors]);
 })->name('atendente');
 
 Route::get('/cozinheiro', function(){

@@ -42,14 +42,21 @@ $("#table-form").submit(async function(e){
             i++;
         }
     );
-    let funcResponse = await $.ajax({
+    await $.ajax({
         data: {data: arr},
         type: $(this).attr('method'),
         url: $(this).attr('action'),
+        success: function(){
+            atendenteUrl = atendenteUrl.replace(':errors', 'false');
+            window.location.href= atendenteUrl;
+        },
+        error: function(){
+            atendenteUrl = atendenteUrl.replace(':errors', 'true');
+            window.location.href = atendenteUrl;
+        }
     });
-    console.log(funcResponse);
-});
 
+})
 
 
 

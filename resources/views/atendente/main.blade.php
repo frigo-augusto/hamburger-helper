@@ -8,14 +8,14 @@
 @section('content')
     <main class="bg-secondary w-100 h-100 position-absolute text-align-center">
         <div class="d-flex flex-row">
-            @if(true)
-                @if(true)
+            @if(isset($errors))
+                @if($errors == "false")
                     <div class="alert alert-success m-4 w-75" role="alert">
                         Pedido adicionado com sucesso!
                     </div>
                 @else
                     <div class="alert alert-danger m-4" role="alert">
-                        Pedido adicionado não realizado.
+                        Pedido não realizado.
                     </div>
                 @endif
             @endif

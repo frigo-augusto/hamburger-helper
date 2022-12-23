@@ -91,4 +91,6 @@
 @section('script')
     {{ url('js/adicionar.js')}}
 @endsection
-
+<script>
+    let atendenteUrl = '{{route('atendente', ":errors")}}';
+</script>
