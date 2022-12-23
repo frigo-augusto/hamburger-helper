@@ -14,7 +14,26 @@
     font-size: 1.5em;
 }
 
-#table-container{
+#table-form{
     width: 95%;
-    height: 95%;
+    min-height: 400px;
+    max-height: 550px;
+}
+
+table{
+    overflow-y:scroll;
+    height:100%;
+    display:block;
+}
+
+.order-table{
+    display: none;
+}
+
+#action-container{
+    text-align: right;
+}
+
+main{
+    overflow: auto;
 }
