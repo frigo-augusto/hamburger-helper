@@ -11,11 +11,11 @@
             @if(isset($errors))
                 @if($errors == "false")
                     <div class="alert alert-success m-4 w-75" role="alert">
-                        Pedido adicionado com sucesso!
+                        Operação realizada com sucesso.
                     </div>
                 @else
                     <div class="alert alert-danger m-4" role="alert">
-                        Pedido não realizado.
+                        Erro na operação.
                     </div>
                 @endif
             @endif
@@ -28,9 +28,8 @@
                 <div class="d-flex flex-column align-items-center justify-content-center h-100">
                     <h1 class="mt-5">Atendente</h1>
                     <div id="buttons-container" class="m-5 w-75 d-flex flex-column">
-                        <a class="p-4 mb-5 w-100 btn btn-danger" href={{route('atendente.adicionar')}}>Adicionar</a>
-                        <a class="p-4 mb-5 w-100 btn btn-danger" href={{route('atendente.editar')}}>Editar</a>
-                        <a class="p-4 w-100 btn btn-danger" href={{route('atendente.excluir')}}>Excluir</a>
+                        <a class="p-4 mb-5 w-100 btn btn-danger" href={{route('caixa.pagar')}}>Pagar</a>
+                        <a class="p-4 w-100 btn btn-danger" href={{route('caixa.excluir')}}>Excluir</a>
                     </div>
                 </div>
             </section>

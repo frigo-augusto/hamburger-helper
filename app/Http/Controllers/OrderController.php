@@ -13,4 +13,8 @@ class OrderController extends Controller
     public function destroy(Request $request){
         dd($request->data);
     }
+
+    public function pagar(Request $request){
+        return $request->data;
+    }
 }

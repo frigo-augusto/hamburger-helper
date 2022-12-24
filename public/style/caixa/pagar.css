@@ -1,0 +1,26 @@
+
+#return-container{
+    text-align: right;
+}
+
+#return-button{
+    font-size: 1.5em;
+}
+
+#action-container{
+    text-align: right;
+}
+
+#delete-form{
+    width: 95%;
+    min-height: 400px;
+    max-height: 550px;
+}
+
+main{
+    overflow: auto;
+}
+
+form{
+    overflow-y: scroll;
+}
