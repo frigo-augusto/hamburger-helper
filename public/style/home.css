@@ -1,3 +1,7 @@
+main{
+    overflow: auto;
+}
+
 section{
     position: absolute;
     top: 50%;

@@ -89,7 +89,7 @@
 @endsection
 
 @section('script')
-    {{ url('js/adicionar.js')}}
+    {{ url('js/atendente/adicionar.js')}}
 @endsection
 <script>
     let atendenteUrl = '{{route('atendente', ":errors")}}';

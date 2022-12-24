@@ -9,4 +9,8 @@ class OrderController extends Controller
     public function new(Request $request){
         throw new \Exception();
     }
+
+    public function destroy(Request $request){
+        dd($request->data);
+    }
 }

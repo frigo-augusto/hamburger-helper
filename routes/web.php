@@ -54,12 +54,25 @@ Route::get('/atendente-adicionar', function(){
     ]);
 })->name('atendente.adicionar');
 
+Route::get('/atendente-excluir', function(){
+    $categorias = array("combo", "hamburger", "bebida", "acompanhamento");
+    $itens = array("coca loca", "renan combinho", "combo carne velha");
+    for($i = 0; $i < rand(10, 100); $i++){
+        $pedidos[$i] = new \stdClass();
+        for($j = 0; $j < rand(3, 100); $j++){
+            $pedidos[$i]->id = $i + 1;
+            $pedidos[$i]->item[$j] = new \stdClass();
+            $pedidos[$i]->item[$j]->tipo = $categorias[rand(0,3)];
+            $pedidos[$i]->item[$j]->nome = $itens[rand(0,2)];
+        }
+
+    }
+    return view('atendente.excluir', ["pedidos" => $pedidos]);
+})->name('atendente.excluir');
+
 Route::get('/atendente-editar', function(){
     return "nao implementado";
 })->name('atendente.editar');
 
-Route::get('/atendente-excluir', function(){
-    return "nao implementado";
-})->name('atendente.excluir');
-
 Route::post('/submit-order', [OrderController::class, 'new'])->name('submit-order');
+Route::delete('/delete-order', [OrderController::class, 'destroy'])->name('delete-order');
