@@ -24,7 +24,16 @@ Route::get('/atendente/{errors?}', function($errors=null){
 })->name('atendente');
 
 Route::get('/cozinheiro', function(){
-    return "não implementado";
+    $itens = array("coca loca", "renan combinho", "combo carne velha");
+    for($i = 0; $i < rand(10, 100); $i++){
+        $pedidos[$i] = new \stdClass();
+        for($j = 0; $j < rand(3, 100); $j++){
+            $pedidos[$i]->id = $i + 1;
+            $pedidos[$i]->item[$j] = new \stdClass();
+            $pedidos[$i]->item[$j]->nome = $itens[rand(0,2)];
+        }
+    }
+    return view('cozinheiro.main', ["pedidos" => $pedidos]);
 })->name('cozinheiro');
 
 Route::get('/caixa/{errors?}', function($errors = null){
@@ -110,4 +119,5 @@ Route::get('/atendente-editar', function(){
 
 Route::post('/submit-order', [OrderController::class, 'new'])->name('submit-order');
 Route::delete('/delete-order', [OrderController::class, 'destroy'])->name('delete-order');
-Route::post('pagar-order', [OrderController::class, 'pagar'])->name('pagar-order');
+Route::post('/pagar-order', [OrderController::class, 'pagar'])->name('pagar-order');
+Route::delete('finalizar-order', [OrderController::class, 'finalizar'])->name('finalizar-order');

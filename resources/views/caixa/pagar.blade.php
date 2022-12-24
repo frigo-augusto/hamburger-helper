@@ -1,13 +1,12 @@
 @extends('templates.app')
 
+@section('title')
+    Caixa - pagar
+@endsection
+
 @section('style')
     {{ url('style/caixa/pagar.css') }}
 @endsection
-
-<style>
-
-</style>
-
 
 @section('content')
     <main class="bg-warning w-100 h-100 position-absolute">

@@ -1,5 +1,9 @@
 @extends('templates.app')
 
+@section('title')
+    Caixa
+@endsection
+
 @section('style')
     {{ url('style/atendente/main.css') }}
 @endsection
@@ -26,7 +30,7 @@
         <div>
             <section class="bg-warning">
                 <div class="d-flex flex-column align-items-center justify-content-center h-100">
-                    <h1 class="mt-5">Atendente</h1>
+                    <h1 class="mt-5">Caixa</h1>
                     <div id="buttons-container" class="m-5 w-75 d-flex flex-column">
                         <a class="p-4 mb-5 w-100 btn btn-danger" href={{route('caixa.pagar')}}>Pagar</a>
                         <a class="p-4 w-100 btn btn-danger" href={{route('caixa.excluir')}}>Excluir</a>

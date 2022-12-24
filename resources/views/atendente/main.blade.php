@@ -1,5 +1,9 @@
 @extends('templates.app')
 
+@section('title')
+    Atendente
+@endsection
+
 @section('style')
     {{ url('style/atendente/main.css') }}
 @endsection
@@ -29,7 +33,6 @@
                     <h1 class="mt-5">Atendente</h1>
                     <div id="buttons-container" class="m-5 w-75 d-flex flex-column">
                         <a class="p-4 mb-5 w-100 btn btn-danger" href={{route('atendente.adicionar')}}>Adicionar</a>
-                        <a class="p-4 mb-5 w-100 btn btn-danger" href={{route('atendente.editar')}}>Editar</a>
                         <a class="p-4 w-100 btn btn-danger" href={{route('atendente.excluir')}}>Excluir</a>
                     </div>
                 </div>

@@ -1,12 +1,12 @@
 @extends('templates.app')
 
+@section('title')
+    Atendente - excluir
+@endsection
+
 @section('style')
     {{ url('style/atendente/excluir.css') }}
 @endsection
-
-<style>
-
-</style>
 
 
 @section('content')

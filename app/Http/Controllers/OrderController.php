@@ -17,4 +17,8 @@ class OrderController extends Controller
     public function pagar(Request $request){
         return $request->data;
     }
+
+    public function finalizar(Request $request){
+        return "form de finalizar!!";
+    }
 }

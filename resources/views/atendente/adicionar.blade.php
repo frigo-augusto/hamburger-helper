@@ -1,5 +1,9 @@
 @extends('templates.app')
 
+@section('title')
+    Atendente - Adicionar
+@endsection
+
 @section('style')
     {{ url('style/atendente/adicionar.css') }}
 @endsection
