@@ -13,5 +13,10 @@
 table{
     overflow-y:scroll;
     height:100%;
+    border-spacing: 15px;
     display:block;
+}
+
+table, th, td {
+    padding: 10px;
 }

@@ -33,7 +33,7 @@
             </table>
         </section>
         <section class= "w-100" id="action-container">
-            <button class="open-modal" data-toggle="modal" data-target="#new-modal" itemId="{{@$p->id}}">>Criar novo produto</button>
+            <button class="open-modal btn btn-success p-3 m-3 final-button" data-toggle="modal" data-target="#new-modal" itemId="{{@$p->id}}">Criar novo produto</button>
         </section>
     </main>
 

@@ -9,16 +9,16 @@
                 <form method="post" action="{{route('administrador.editar-produtos')}}" id="edit-form">
                     <input type="hidden" id="item-id" name="item-id"/>
                     <table>
-                        <tr>
+                        <tr class="px-10 pb-10">
                             <th>Check</th>
                             <th>Ingrediente</th>
                         </tr>
-                        <tr>
-                            @foreach($ingredientes as $i)
-                            <td><input type="checkbox" ingredientId="{{@$i->id}}" name="ingredient{{@$i->id}}"/></td>
-                            <td>{{@$i->name}}</td>
-                            @endforeach
-                        </tr>
+                        @foreach($ingredientes as $i)
+                            <tr>
+                                <td><input type="checkbox" ingredientId="{{@$i->id}}" name="ingredient{{@$i->id}}"/></td>
+                                <td>{{@$i->name}}</td>
+                            </tr>
+                        @endforeach
                     </table>
 
                 </form>
