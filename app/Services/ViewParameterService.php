@@ -45,4 +45,14 @@ class ViewParameterService
         }
         return $produtos;
     }
+
+    public static function getAllIngredients(){
+        $ingredients = array();
+        for($i = 0; $i < 100; $i++){
+            $ingredients[$i] = new \stdClass();
+            $ingredients[$i]->id = $i + 1;
+            $ingredients[$i]->name = "alface" . ($i + 1);
+        }
+        return $ingredients;
+    }
 }

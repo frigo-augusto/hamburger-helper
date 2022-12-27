@@ -1,11 +1,11 @@
 @extends('templates.app')
 
 @section('title')
-    Admnistrador
+    Administrador
 @endsection
 
 @section('style')
-    {{ url('style/admnistrador/main.css') }}
+    {{ url('style/administrador/main.css') }}
 @endsection
 
 
@@ -25,5 +25,5 @@
 @endsection
 
 @section('script')
-    {{ url('js/admnistrador/main.js')}}
+    {{ url('js/administrador/main.js')}}
 @endsection
