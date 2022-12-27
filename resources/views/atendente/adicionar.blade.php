@@ -15,7 +15,7 @@
         </div>
         <section class="d-flex flex-row m-1">
             <section class="d-flex flex-column" id="category-container">
-                <button class="btn btn-danger p-5 m-3 mt-4 mb-5 category-button" id="combo-button">Combo</button>
+                <button class="btn btn-danger m-3 p-5 mb-5 mt-4 category-button" id="combo-button">Combo</button>
                 <button class="btn btn-danger m-3 p-5 mb-5 category-button" id="hamburger-button">Hambúrguer</button>
                 <button class="btn btn-danger m-3 p-5 mb-5 category-button" id="bebida-button">Bebida</button>
                 <button type="button" class="btn btn-danger m-3 p-5 mb-5 category-button" id="acompanhamento-button">Acompanhamento</button>
