@@ -13,10 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('items', function (Blueprint $table) {
+        Schema::create('combos_items', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('name');
+            $table->bigInteger('combo_id')->unsigned();
+            $table->bigInteger('item_id')->unsigned();
+            $table->foreign('combo_id')->references('id')->on('combos');
+            $table->foreign('item_id')->references('id')->on('items');
         });
     }
 
@@ -27,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('items');
+        Schema::dropIfExists('combos_items');
     }
 };

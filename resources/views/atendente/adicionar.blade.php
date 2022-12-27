@@ -30,7 +30,7 @@
                         </tr>
                         @foreach($combo as $c)
                             <tr>
-                                <td><input type="checkbox" id="{{@$c->id}}" name="combo{{@$c->id}}" origin="combo"/></td>
+                                <td><input type="checkbox" order-id="{{@$c->id}}" name="combo{{@$c->id}}" origin="combo"/></td>
                                 <td>{{@$c->id}}</td>
                                 <td>{{@$c->nome}}</td>
                             </tr>
@@ -45,7 +45,7 @@
                         </tr>
                         @foreach($hamburger as $h)
                             <tr>
-                                <td><input type="checkbox" id="{{@$h->id}}" name="hamburger{{@$h->id}}" origin="hamburger"/></td>
+                                <td><input type="checkbox" order-id="{{@$h->id}}" name="hamburger{{@$h->id}}" origin="hamburger"/></td>
                                 <td>{{@$h->id}}</td>
                                 <td>{{@$h->nome}}</td>
                             </tr>
@@ -60,7 +60,7 @@
                         </tr>
                         @foreach($bebida as $b)
                             <tr>
-                                <td><input type="checkbox" id="{{@$b->id}}" name="bebida{{@$b->id}}" origin="bebida"/></td>
+                                <td><input type="checkbox" order-id="{{@$b->id}}" name="bebida{{@$b->id}}" origin="bebida"/></td>
                                 <td>{{@$b->id}}</td>
                                 <td>{{@$b->nome}}</td>
                             </tr>
@@ -75,7 +75,7 @@
                         </tr>
                         @foreach($acompanhamento as $a)
                             <tr>
-                                <td><input type="checkbox" id="{{@$a->id}}" name="acompanhamento{{@$a->id}}" origin="acompanhamento"/></td>
+                                <td><input type="checkbox" order-id="{{@$a->id}}" name="acompanhamento{{@$a->id}}" origin="acompanhamento"/></td>
                                 <td>{{@$a->id}}</td>
                                 <td>{{@$a->nome}}</td>
                             </tr>

@@ -9,4 +9,14 @@ class Order extends Model
 {
     use HasFactory;
 
+
+    public function combo()
+    {
+        return $this->morphedByMany(Combo::class, 'order_combo_item');
+    }
+
+    public function item()
+    {
+        return $this->morphedByMany(Item::class, 'order_combo_item');
+    }
 }
