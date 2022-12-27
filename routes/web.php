@@ -32,3 +32,6 @@ Route::post('/submit-order', [OrderController::class, 'new'])->name('submit-orde
 Route::delete('/delete-order', [OrderController::class, 'destroy'])->name('delete-order');
 Route::post('/pagar-order', [OrderController::class, 'pagar'])->name('pagar-order');
 Route::delete('finalizar-order', [OrderController::class, 'finalizar'])->name('finalizar-order');
+
+Route::get('/admnistrador', [ViewController::class, 'admnistrador'])->name('admnistrador');
+Route::get('/admnistrador-produtos', [ViewController::class, 'admnistradorProdutos'])->name('admnistrador.produtos');

@@ -48,4 +48,12 @@ class ViewController extends Controller
         $pedidos = ViewParameterService::getOrders();
         return view('caixa.excluir', ["pedidos" => $pedidos]);
     }
+
+    public function admnistrador(){
+        return view('admnistrador.main');
+    }
+
+    public function admnistradorProdutos(){
+        return view('admnistrador.produtos');
+    }
 }

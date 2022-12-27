@@ -1,0 +1,17 @@
+#return-container{
+    text-align: right;
+}
+
+#return-button{
+    font-size: 1.5em;
+}
+
+#action-container{
+    text-align: right;
+}
+
+table{
+    overflow-y:scroll;
+    height:100%;
+    display:block;
+}
