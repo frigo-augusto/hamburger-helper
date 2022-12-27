@@ -14,7 +14,23 @@
             <a class="m-3 btn btn-primary" id="return-button" href="{{route('admnistrador')}}">Voltar</a>
         </div>
         <section class="bg-light w-75 h-75">
-            <table class="table table-bordered">
+            <table class="table table-bordered ml-3">
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Editar</th>
+                    <th>Excluir</th>
+                    <th>Desconto</th>
+                </tr>
+                @foreach($produtos as $p)
+                <tr>
+                    <td>{{@$p->id}}</td>
+                    <td>{{@$p->name}}</td>
+                    <td><button>Editar</button></td>
+                    <td><button>Excluir</button></td>
+                    <td><button>Desconto</button></td>
+                </tr>
+                @endforeach
             </table>
         </section>
         <section class= "w-100" id="action-container">

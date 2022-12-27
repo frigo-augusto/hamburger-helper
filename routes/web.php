@@ -33,5 +33,5 @@ Route::delete('/delete-order', [OrderController::class, 'destroy'])->name('delet
 Route::post('/pagar-order', [OrderController::class, 'pagar'])->name('pagar-order');
 Route::delete('finalizar-order', [OrderController::class, 'finalizar'])->name('finalizar-order');
 
-Route::get('/admnistrador', [ViewController::class, 'admnistrador'])->name('admnistrador');
-Route::get('/admnistrador-produtos', [ViewController::class, 'admnistradorProdutos'])->name('admnistrador.produtos');
+Route::get('/administrador', [ViewController::class, 'administrador'])->name('admnistrador');
+Route::get('/administrador-produtos', [ViewController::class, 'administradorProdutos'])->name('administrador.produtos');

@@ -49,11 +49,13 @@ class ViewController extends Controller
         return view('caixa.excluir', ["pedidos" => $pedidos]);
     }
 
-    public function admnistrador(){
+    public function administrador(){
         return view('admnistrador.main');
     }
 
-    public function admnistradorProdutos(){
-        return view('admnistrador.produtos');
+    public function administradorProdutos(){
+        //$produtos = Produto::all();
+        $produtos = ViewParameterService::getAllProducts();
+        return view('admnistrador.produtos', ["produtos" => $produtos]);
     }
 }

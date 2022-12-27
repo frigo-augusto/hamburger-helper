@@ -35,4 +35,14 @@ class ViewParameterService
         }
         return $orderTypes;
     }
+
+    public static function getAllProducts(){
+        $produtos = array();
+        for($i = 0; $i < 100; $i++){
+            $produtos[$i] = new \stdClass();
+            $produtos[$i]->id = $i + 1;
+            $produtos[$i]->name = "batata" . ($i + 1);
+        }
+        return $produtos;
+    }
 }
