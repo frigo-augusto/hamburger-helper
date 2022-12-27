@@ -37,7 +37,7 @@ $("#table-form").submit(async function(e){
     let i = 0;
     $(this).serializeArray().forEach(function(item){
             arr[i] = new Object();
-            arr[i].id = $('input[name="' + item.name + '"]').attr("id");
+            arr[i].id = $('input[name="' + item.name + '"]').attr("order-id");
             arr[i].origin = $('input[name="' + item.name + '"]').attr("origin");
             i++;
         }
