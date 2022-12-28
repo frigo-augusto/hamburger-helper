@@ -36,6 +36,16 @@ class ViewParameterService
         return $orderTypes;
     }
 
+    public static function getAllCombos(){
+        $combos = array();
+        for($i = 0; $i < 100; $i++){
+            $combos[$i] = new \stdClass();
+            $combos[$i]->id = $i + 1;
+            $combos[$i]->name = "combola" . ($i + 1);
+        }
+        return $combos;
+    }
+
     public static function getAllProducts(){
         $produtos = array();
         for($i = 0; $i < 100; $i++){

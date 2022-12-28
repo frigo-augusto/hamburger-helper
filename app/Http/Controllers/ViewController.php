@@ -61,4 +61,18 @@ class ViewController extends Controller
             "produtos" => $produtos,
             "ingredientes" => $ingredientes]);
     }
+
+    public function administradorCombos(){
+        $combos = ViewParameterService::getAllCombos();
+        $produtos = ViewParameterService::getAllProducts();
+        return view('administrador.combos', [
+            "combos" => $combos,
+            "produtos" => $produtos]);
+    }
+
+    public function administradorIngredientes(){
+        $ingredientes = ViewParameterService::getAllIngredients();
+        return view('administrador.ingredientes', [
+            "ingredientes" => $ingredientes]);
+    }
 }

@@ -16,8 +16,8 @@
             <h1 class="mt-5">Gerenciar Restaurante</h1>
             <div id="buttons-container" class="m-5 w-75 d-flex flex-column align-items-center justify-content-center">
                 <a class="p-4 mb-4 w-50 btn btn-danger" href={{route('administrador.produtos')}}>Produtos</a>
-                <a class="p-4 mb-4 w-50 btn btn-danger">Combos</a>
-                <a class="p-4 w-50 btn btn-danger">Ingredientes</a>
+                <a class="p-4 mb-4 w-50 btn btn-danger" href={{route('administrador.combos')}}>Combos</a>
+                <a class="p-4 w-50 btn btn-danger" href={{route('administrador.ingredientes')}}>Ingredientes</a>
             </div>
         </div>
     </section>
