@@ -19,8 +19,8 @@ return new class extends Migration
             $table->bigInteger('item_id')->unsigned();
             $table->bigInteger('ingredient_id')->unsigned();
             $table->integer('amount_used')->nullable();
-            $table->foreign('item_id')->references('id')->on('items');
-            $table->foreign('ingredient_id')->references('id')->on('ingredients');
+            $table->foreign('item_id')->references('id')->on('items')->onDelete('cascade');
+            $table->foreign('ingredient_id')->references('id')->on('ingredients')->onDelete('cascade');
         });
     }
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Ingredient;
 use App\Models\Item;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
@@ -18,11 +19,6 @@ class AdminController extends Controller
                 {
                     $item->ingredient()->attach($ingredient);
                 }
-
-                //$query = Ingredient::where('id', $request->itemId)
-                //    join('item_ingredient', 'ingredient_id', '=', 'id')
-                //    ->get();
-                //var_dump($request->data);
             }
     }
 
@@ -31,7 +27,13 @@ class AdminController extends Controller
     }
 
     public function excluirIngredientes(Request $request){
-        echo $request;
+        $ingredient = Ingredient::find($request->id);
+        if ($ingredient)
+        {
+            $ingredient->delete();
+        }
+        $a = DB::table('ingredients')->select('*')->get();
+        echo $a;
     }
 
 
