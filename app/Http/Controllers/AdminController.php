@@ -11,10 +11,13 @@ class AdminController extends Controller
     public function editarProdutos(Request $request){
         if ($request->data != null)
             {
-                print_r($request->itemId);
                 $item = Item::find($request->itemId);
                 $item->ingredient()->detach();
-                $item->ingredient()->attach($request->data);
+
+                foreach ($request->data as $ingredient)
+                {
+                    $item->ingredient()->attach($ingredient);
+                }
 
                 //$query = Ingredient::where('id', $request->itemId)
                 //    join('item_ingredient', 'ingredient_id', '=', 'id')
