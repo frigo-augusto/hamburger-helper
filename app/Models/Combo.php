@@ -15,11 +15,11 @@ class Combo extends Model
 
     public function order()
     {
-        return $this->morphToMany(Order::class, 'order_combo_item');
+        return $this->morphToMany(Order::class, 'order_combo_items');
     }
 
     public function item(){
-        return $this->belongsToMany(Item::class, 'combo_item');
+        return $this->belongsToMany(Item::class, 'combos_items');
     }
 
 }

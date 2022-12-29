@@ -36,9 +36,19 @@ class AdminController extends Controller
         echo $a;
     }
 
-
+    public function excluirProdutos(Request $request){
+        $item = Item::find($request->id);
+        if($item)
+        {
+            $item->delete();
+        }
+    }
 
     public function excluirCombos(Request $request){
-        echo $request;
+        $combo = Item::find($request->id);
+        if($combo)
+        {
+            $combo->delete();
+        }
     }
 }
