@@ -14,6 +14,10 @@ class AdminController extends Controller
         }
     }
 
+    public function criarIngredientes(Request $request){
+        echo $request;
+    }
+
     public function excluirIngredientes(Request $request){
         echo $request;
     }

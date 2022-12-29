@@ -16,3 +16,25 @@ $(document).on("click", ".delete-ingredient-button", async function(e){
         url: deleteUrl
     });
 });
+
+$('#new-modal').on('hidden.bs.modal', function (e) {
+    $(this)
+        .find("input")
+            .val('')
+            .end()
+})
+
+$("#new-form").submit(async function(event){
+    event.preventDefault();
+    var name = $('#item-name').val();
+    var amount = $('#item-amount').val();
+
+    await $.ajax({
+        data: {
+            name: name,
+            amount: amount
+        },
+        type: 'POST',
+        url: postUrl
+    });
+});

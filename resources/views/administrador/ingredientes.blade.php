@@ -36,10 +36,13 @@
         </section>
     </main>
 
+    @include('administrador.ingredientes-modal')
+
 @endsection
 <script>
     let url = "{{route('administrador', ":errors")}}"
     let deleteUrl = "{{route('administrador.excluir-ingredientes')}}"
+    let postUrl = "{{route('administrador.criar-ingredientes')}}"
 </script>
 @section('script')
     {{ url('js/administrador/ingredientes.js')}}
