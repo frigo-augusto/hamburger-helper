@@ -15,7 +15,7 @@ class IngredientFactory extends Factory
     {
         return [
             'name' => fake()->name(),
-            'amount' => 0
+            'amount' => fake()->numberBetween(0, 100)
         ];
     }
 }

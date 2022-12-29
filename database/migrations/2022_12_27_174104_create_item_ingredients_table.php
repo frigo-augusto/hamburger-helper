@@ -18,7 +18,7 @@ return new class extends Migration
             $table->timestamps();
             $table->bigInteger('item_id')->unsigned();
             $table->bigInteger('ingredient_id')->unsigned();
-            $table->integer('amount_used');
+            $table->integer('amount_used')->nullable();
             $table->foreign('item_id')->references('id')->on('items');
             $table->foreign('ingredient_id')->references('id')->on('ingredients');
         });

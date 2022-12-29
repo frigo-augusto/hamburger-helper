@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Ingredient;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -22,6 +23,10 @@ class DatabaseSeeder extends Seeder
          ]);
 
           \App\Models\Ingredient::factory(50)->create();
+
+          \App\Models\Item::factory(50)->create();
+
+          \App\Models\Item::find(1)->ingredient()->attach( \App\Models\Ingredient::find(1));
 
     }
 }
