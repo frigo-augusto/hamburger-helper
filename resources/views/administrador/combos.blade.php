@@ -16,18 +16,17 @@
         <section class="bg-light w-75 h-75">
             <table class="table table-bordered ml-3">
                 <tr>
-                    <th>Id</th>
-                    <th>Nome</th>
-                    <th>Editar</th>
-                    <th>Excluir</th>
-                    <th>Desconto</th>
+                    <th class="th-lg">Id</th>
+                    <th class="th-lg">Nome</th>
+                    <th class="th-lg">Editar</th>
+                    <th class="th-lg">Excluir</th>
                 </tr>
                 @foreach($combos as $c)
                     <tr>
                         <td>{{@$c->id}}</td>
                         <td>{{@$c->name}}</td>
                         <td><button class="open-modal btn btn-warning" data-toggle="modal" data-target="#edit-modal" itemId="{{@$c->id}}">Editar</button></td>
-                        <td><button class="open-modal btn btn-danger" data-toggle="modal" data-target="#delete-modal" itemId="{{@$c->id}}">Excluir</button></td>
+                        <td><button class="open-modal btn btn-danger delete-combo-button" data-toggle="modal" data-target="#delete-modal" comboId="{{@$c->id}}">Excluir</button></td>
                     </tr>
                 @endforeach
             </table>
@@ -43,6 +42,7 @@
 @endsection
 <script>
     let url = "{{route('administrador', ":errors")}}"
+    let deleteUrl = "{{route('administrador.excluir-combos')}}"
 </script>
 @section('script')
     {{ url('js/administrador/combos.js')}}

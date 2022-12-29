@@ -14,7 +14,15 @@ class AdminController extends Controller
         }
     }
 
+    public function excluirIngredientes(Request $request){
+        echo $request;
+    }
+
     public function excluirProdutos(Request $request){
+        echo $request;
+    }
+
+    public function excluirCombos(Request $request){
         echo $request;
     }
 }

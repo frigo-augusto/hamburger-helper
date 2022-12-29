@@ -32,11 +32,11 @@ $("#edit-form").submit(async function(event){
         url: $(this).attr('action'),
         success: function(){
             url = url.replace(':errors', 'false');
-            //window.location.href = url;
+            window.location.href = '/administrador-produtos';
         },
         error: function(){
             url = url.replace(':errors', 'true');
-            //window.location.href = url;
+            window.location.href = '/administrador-produtos';
         }
     });
     return false;
@@ -44,7 +44,6 @@ $("#edit-form").submit(async function(event){
 
 $(document).on("click", ".delete-product-button", async function(e){
     var id = $(this).attr("productId");
-    console.log("Deleta " + id);
 
     await $.ajax({
         data: {

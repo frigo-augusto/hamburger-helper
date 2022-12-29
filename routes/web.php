@@ -39,4 +39,6 @@ Route::put('/administrador-editar-produtos', [AdminController::class, 'editarPro
 Route::delete('/administrador-editar-produtos', [AdminController::class, 'excluirProdutos'])->name('administrador.excluir-produtos');
 Route::get('/administrador-combos', [ViewController::class, 'administradorCombos'])->name('administrador.combos');
 Route::put('/administrador-editar-combos', [AdminController::class, 'editarCombos'])->name('administrador.editar-combos');
+Route::delete('/administrador-editar-combos', [AdminController::class, 'excluirCombos'])->name('administrador.excluir-combos');
 Route::get('/administrador-ingredientes', [ViewController::class, 'administradorIngredientes'])->name('administrador.ingredientes');
+Route::delete('/administrador-editar-ingredientes', [AdminController::class, 'excluirIngredientes'])->name('administrador.excluir-ingredientes');
