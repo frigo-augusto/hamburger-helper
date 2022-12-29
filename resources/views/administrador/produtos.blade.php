@@ -16,18 +16,17 @@
         <section class="bg-light w-75 h-75">
             <table class="table table-bordered ml-3">
                 <tr>
-                    <th>Id</th>
-                    <th>Nome</th>
-                    <th>Editar</th>
-                    <th>Excluir</th>
-                    <th>Desconto</th>
+                    <th class="th-lg">Id</th>
+                    <th class="th-lg">Nome</th>
+                    <th class="th-lg">Editar</th>
+                    <th class="th-lg">Excluir</th>
                 </tr>
                 @foreach($produtos as $p)
                     <tr>
                         <td>{{@$p->id}}</td>
                         <td>{{@$p->name}}</td>
-                        <td><button class="open-modal" data-toggle="modal" data-target="#edit-modal" itemId="{{@$p->id}}">Editar</button></td>
-                        <td><button class="open-modal" data-toggle="modal" data-target="#delete-modal" itemId="{{@$p->id}}">Excluir</button></td>
+                        <td><button class="open-modal btn btn-warning" data-toggle="modal" data-target="#edit-modal" itemId="{{@$p->id}}">Editar</button></td>
+                        <td><button class="open-modal btn btn-danger delete-product-button" data-toggle="modal" data-target="#delete-modal" productId="{{@$p->id}}">Excluir</button></td>
                     </tr>
                 @endforeach
             </table>
@@ -43,6 +42,7 @@
 @endsection
 <script>
     let url = "{{route('administrador', ":errors")}}"
+    let deleteUrl = "{{route('administrador.excluir-produtos')}}"
 </script>
 @section('script')
     {{ url('js/administrador/produtos.js')}}

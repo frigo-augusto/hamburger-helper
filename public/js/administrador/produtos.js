@@ -40,4 +40,17 @@ $("#edit-form").submit(async function(event){
         }
     });
     return false;
-})
+});
+
+$(document).on("click", ".delete-product-button", async function(e){
+    var id = $(this).attr("productId");
+    console.log("Deleta " + id);
+
+    await $.ajax({
+        data: {
+            id: id
+        },
+        type: 'DELETE',
+        url: deleteUrl
+    });
+});

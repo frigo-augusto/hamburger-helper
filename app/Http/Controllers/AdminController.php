@@ -13,4 +13,8 @@ class AdminController extends Controller
             echo $ing->name;
         }
     }
+
+    public function excluirProdutos(Request $request){
+        echo $request;
+    }
 }
