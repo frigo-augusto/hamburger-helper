@@ -23,7 +23,8 @@ class Item extends Model
     }
 
     public function ingredient(){
-        return $this->belongsToMany(Ingredient::class, 'items_ingredients');
+        return $this->belongsToMany(Ingredient::class, 'items_ingredients')
+            ->withPivot('amount');
     }
 
 }

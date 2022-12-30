@@ -13,12 +13,16 @@ class AdminController extends Controller
         if ($request->data != null)
         {
             $item = Item::find($request->itemId);
+
+            $item->name = $request->name;
             $item->ingredient()->detach();
 
             foreach ($request->data as $ingredient)
             {
-                $item->ingredient()->attach($ingredient);
+                $item->ingredient()->attach($ingredient['id'], ['amount' => $ingredient['amount']]);
             }
+
+            $item->save();
         }
     }
 
