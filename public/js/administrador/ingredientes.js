@@ -20,6 +20,13 @@ $(document).on("click", ".delete-ingredient-button", async function(e){
 $('#new-modal').on('hidden.bs.modal', function (e) {
     $(this)
         .find("input")
+        .val('')
+        .end()
+})
+
+$('#edit-modal').on('hidden.bs.modal', function (e) {
+    $(this)
+        .find("input")
             .val('')
             .end()
 })
@@ -34,7 +41,39 @@ $("#new-form").submit(async function(event){
             name: name,
             amount: amount
         },
-        type: 'POST',
-        url: postUrl
+        type: $(this).attr('method'),
+        url: $(this).attr('action')
     });
+
+    $(this)
+        .find("input")
+        .val('')
+        .end()
+});
+
+let ingredientId
+
+$(".open-edit-modal").click(function(event){
+    ingredientId = $(this).attr("itemId");
+});
+
+$("#edit-form").submit(async function(event){
+    event.preventDefault();
+    var name = $('#item-edit-name').val();
+    var amount = $('#item-edit-amount').val();
+
+    await $.ajax({
+        data: {
+            id: ingredientId,
+            name: name,
+            amount: amount
+        },
+        type: 'put',
+        url: $(this).attr('action')
+    });
+
+    $(this)
+        .find("input")
+        .val('')
+        .end()
 });

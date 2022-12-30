@@ -26,6 +26,10 @@ class AdminController extends Controller
         echo $request;
     }
 
+    public function editarIngredientes(Request $request){
+        echo $request;
+    }
+
     public function excluirIngredientes(Request $request){
         $ingredient = Ingredient::find($request->id);
         if ($ingredient)

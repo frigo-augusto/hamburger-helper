@@ -62,6 +62,7 @@ class ViewParameterService
             $ingredients[$i] = new \stdClass();
             $ingredients[$i]->id = $i + 1;
             $ingredients[$i]->name = "alface" . ($i + 1);
+            $ingredients[$i]->amount = 24;
         }
         return $ingredients;
     }

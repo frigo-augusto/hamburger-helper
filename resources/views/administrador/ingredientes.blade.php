@@ -18,6 +18,7 @@
                 <tr>
                     <th class="th-lg">Id</th>
                     <th class="th-lg">Nome</th>
+                    <th class="th-lg">Quantidade</th>
                     <th class="th-lg">Editar</th>
                     <th class="th-lg">Excluir</th>
                 </tr>
@@ -25,7 +26,8 @@
                     <tr>
                         <td>{{@$i->id}}</td>
                         <td>{{@$i->name}}</td>
-                        <td><button class="open-modal btn btn-warning" data-toggle="modal" data-target="#edit-modal" itemId="{{@$i->id}}">Editar</button></td>
+                        <td>{{@$i->amount}}</td>
+                        <td><button class="open-modal btn btn-warning open-edit-modal" data-toggle="modal" data-target="#edit-modal" itemId="{{@$i->id}}">Editar</button></td>
                         <td><button class="open-modal btn btn-danger delete-ingredient-button" data-toggle="modal" data-target="#delete-modal" ingredientId="{{@$i->id}}">Excluir</button></td>
                     </tr>
                 @endforeach
