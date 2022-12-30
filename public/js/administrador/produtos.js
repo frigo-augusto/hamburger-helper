@@ -32,7 +32,15 @@ $("#new-form").submit(async function(event){
             data: arr
         },
         type: $(this).attr('method'),
-        url: $(this).attr('action')
+        url: $(this).attr('action'),
+        success: function(){
+            url = url.replace(':errors', 'false');
+            window.location.href= url;
+        },
+        error: function(){
+            url = url.replace(':errors', 'true');
+            window.location.href = url;
+        }
     });
 
     $("#new-form input:checkbox:checked").each(function() {
@@ -71,11 +79,11 @@ $("#edit-form").submit(async function(event){
         url: $(this).attr('action'),
         success: function(){
             url = url.replace(':errors', 'false');
-            //window.location.href = '/administrador-produtos';
+            window.location.href= url;
         },
         error: function(){
             url = url.replace(':errors', 'true');
-            //window.location.href = '/administrador-produtos';
+            window.location.href = url;
         }
     });
 
@@ -130,7 +138,15 @@ $('.delete-product-button').click(async function(e){
             id: deleteProductId
         },
         type: 'DELETE',
-        url: deleteUrl
+        url: deleteUrl,
+        success: function(){
+            url = url.replace(':errors', 'false');
+            window.location.href= url;
+        },
+        error: function(){
+            url = url.replace(':errors', 'true');
+            window.location.href = url;
+        }
     });
 
     $("#delete-modal").modal("hide");

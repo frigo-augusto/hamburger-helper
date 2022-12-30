@@ -31,7 +31,15 @@ $("#new-form").submit(async function(event){
             data: arr
         },
         type: $(this).attr('method'),
-        url: $(this).attr('action')
+        url: $(this).attr('action'),
+        success: function(){
+            url = url.replace(':errors', 'false');
+            window.location.href= url;
+        },
+        error: function(){
+            url = url.replace(':errors', 'true');
+            window.location.href = url;
+        }
     });
 
     $("#new-form input:checkbox:checked").each(function() {
@@ -124,7 +132,15 @@ $('.delete-combo-button').click(async function(e){
             id: deleteComboId
         },
         type: 'DELETE',
-        url: deleteUrl
+        url: deleteUrl,
+        success: function(){
+            url = url.replace(':errors', 'false');
+            window.location.href= url;
+        },
+        error: function(){
+            url = url.replace(':errors', 'true');
+            window.location.href = url;
+        }
     });
 
     $("#delete-modal").modal('hide');
