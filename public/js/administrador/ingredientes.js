@@ -30,7 +30,15 @@ $("#new-form").submit(async function(event){
             amount: amount
         },
         type: $(this).attr('method'),
-        url: $(this).attr('action')
+        url: $(this).attr('action'),
+        success: function(){
+            url = url.replace(':errors', 'false');
+            window.location.href= url;
+        },
+        error: function(){
+            url = url.replace(':errors', 'true');
+            window.location.href = url;
+        }
     });
 
     $(this)
@@ -64,7 +72,15 @@ $("#edit-form").submit(async function(event){
             amount: amount
         },
         type: 'put',
-        url: $(this).attr('action')
+        url: $(this).attr('action'),
+        success: function(){
+            url = url.replace(':errors', 'false');
+            window.location.href= url;
+        },
+        error: function(){
+            url = url.replace(':errors', 'true');
+            window.location.href = url;
+        }
     });
 
     $("#edit-modal").modal("hide");
@@ -82,7 +98,15 @@ $('.delete-ingredient-button').click(async function(e){
             id: deleteIngredientId
         },
         type: 'DELETE',
-        url: deleteUrl
+        url: deleteUrl,
+        success: function(){
+            url = url.replace(':errors', 'false');
+            window.location.href= url;
+        },
+        error: function(){
+            url = url.replace(':errors', 'true');
+            window.location.href = url;
+        }
     });
 
     $("#delete-modal").modal("hide");

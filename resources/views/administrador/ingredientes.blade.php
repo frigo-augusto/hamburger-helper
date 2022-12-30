@@ -42,7 +42,7 @@
 
 @endsection
 <script>
-    let url = "{{route('administrador', ":errors")}}"
+    let url = "{{route('administrador.ingredientes', ":errors")}}"
     let deleteUrl = "{{route('administrador.excluir-ingredientes')}}"
     let postUrl = "{{route('administrador.criar-ingredientes')}}"
     let ingredientData = {!! json_encode($ingredientes) !!};
