@@ -39,8 +39,9 @@ Route::post('/administrador-criar-produtos', [AdminController::class, 'criarProd
 Route::put('/administrador-editar-produtos', [AdminController::class, 'editarProdutos'])->name('administrador.editar-produtos');
 Route::delete('/administrador-editar-produtos', [AdminController::class, 'excluirProdutos'])->name('administrador.excluir-produtos');
 Route::get('/administrador-combos', [ViewController::class, 'administradorCombos'])->name('administrador.combos');
+Route::post('/administrador-criar-combos', [AdminController::class, 'criarCombos'])->name('administrador.criar-combos');
 Route::put('/administrador-editar-combos', [AdminController::class, 'editarCombos'])->name('administrador.editar-combos');
-Route::delete('/administrador-editar-combos', [AdminController::class, 'excluirCombos'])->name('administrador.excluir-combos');
+Route::delete('/administrador-excluir-combos', [AdminController::class, 'excluirCombos'])->name('administrador.excluir-combos');
 Route::get('/administrador-ingredientes', [ViewController::class, 'administradorIngredientes'])->name('administrador.ingredientes');
 Route::post('/administrador-criar-ingredientes', [AdminController::class, 'criarIngredientes'])->name('administrador.criar-ingredientes');
 Route::put('/administrador-editar-ingredientes', [AdminController::class, 'editarIngredientes'])->name('administrador.editar-ingredientes');

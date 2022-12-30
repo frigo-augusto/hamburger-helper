@@ -10,7 +10,38 @@ let nextId;
 $(".open-modal").click(function(event){
     nextId = $(this).attr("itemId");
 });
+$("#new-form").submit(async function(event){
+    event.preventDefault();
+    var name = $('#item-name').val();
 
+    let i = 0;
+    let arr = new Array();
+    $(this).serializeArray().forEach(function(item){
+            arr[i] = new Object();
+            arr[i].id = $('input[name="' + item.name + '"]').attr("productId");
+            i++;
+        }
+    );
+    arr = arr.filter((a) => a.id != null);
+
+    await $.ajax({
+        data: {
+            name: name,
+            data: arr
+        },
+        type: $(this).attr('method'),
+        url: $(this).attr('action')
+    });
+
+    $("#new-form input:checkbox:checked").each(function() {
+        $(this).prop('checked', false)
+    });
+
+    $(this)
+        .find("input")
+        .val('')
+        .end()
+});
 $("#edit-form").submit(async function(event){
     event.preventDefault();
     $("#item-id").val(nextId);

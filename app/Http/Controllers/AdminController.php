@@ -9,23 +9,6 @@ use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
-    public function  criarProdutos(Request $request){
-        echo $request;
-    }
-
-    public function editarProdutos(Request $request){
-        if ($request->data != null)
-            {
-                $item = Item::find($request->itemId);
-                $item->ingredient()->detach();
-
-                foreach ($request->data as $ingredient)
-                {
-                    $item->ingredient()->attach($ingredient);
-                }
-            }
-    }
-
     public function criarIngredientes(Request $request){
         echo $request;
     }
@@ -42,6 +25,23 @@ class AdminController extends Controller
         }
         $a = DB::table('ingredients')->select('*')->get();
         echo $a;
+    }
+
+    public function  criarProdutos(Request $request){
+        echo $request;
+    }
+
+    public function editarProdutos(Request $request){
+        if ($request->data != null)
+        {
+            $item = Item::find($request->itemId);
+            $item->ingredient()->detach();
+
+            foreach ($request->data as $ingredient)
+            {
+                $item->ingredient()->attach($ingredient);
+            }
+        }
     }
 
     public function excluirProdutos(Request $request){
