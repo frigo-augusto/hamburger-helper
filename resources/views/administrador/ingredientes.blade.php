@@ -28,7 +28,7 @@
                         <td>{{@$i->name}}</td>
                         <td>{{@$i->amount}}</td>
                         <td><button class="open-modal btn btn-warning open-edit-modal" data-toggle="modal" data-target="#edit-modal" itemId="{{@$i->id}}">Editar</button></td>
-                        <td><button class="open-modal btn btn-danger delete-ingredient-button" data-toggle="modal" data-target="#delete-modal" ingredientId="{{@$i->id}}">Excluir</button></td>
+                        <td><button class="open-modal btn btn-danger open-delete-modal" data-toggle="modal" data-target="#delete-modal" ingredientId="{{@$i->id}}">Excluir</button></td>
                     </tr>
                 @endforeach
             </table>
@@ -45,6 +45,7 @@
     let url = "{{route('administrador', ":errors")}}"
     let deleteUrl = "{{route('administrador.excluir-ingredientes')}}"
     let postUrl = "{{route('administrador.criar-ingredientes')}}"
+    let ingredientData = {!! json_encode($ingredientes) !!};
 </script>
 @section('script')
     {{ url('js/administrador/ingredientes.js')}}

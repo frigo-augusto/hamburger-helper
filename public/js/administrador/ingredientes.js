@@ -5,18 +5,6 @@ $.ajaxSetup({
     }
 });
 
-$(document).on("click", ".delete-ingredient-button", async function(e){
-    var id = $(this).attr("ingredientId");
-
-    await $.ajax({
-        data: {
-            id: id
-        },
-        type: 'DELETE',
-        url: deleteUrl
-    });
-});
-
 $('#new-modal').on('hidden.bs.modal', function (e) {
     $(this)
         .find("input")
@@ -57,6 +45,13 @@ $(".open-edit-modal").click(function(event){
     ingredientId = $(this).attr("itemId");
 });
 
+$('#edit-modal').on('shown.bs.modal', function() {
+    let tempIngredient = ingredientData.filter( (p) => p.id == ingredientId);
+    let currentIngredient = tempIngredient[0];
+    $('#item-edit-name').val(currentIngredient.name);
+    $('#item-edit-amount').val(currentIngredient.amount);
+});
+
 $("#edit-form").submit(async function(event){
     event.preventDefault();
     var name = $('#item-edit-name').val();
@@ -72,8 +67,23 @@ $("#edit-form").submit(async function(event){
         url: $(this).attr('action')
     });
 
-    $(this)
-        .find("input")
-        .val('')
-        .end()
+    $("#edit-modal").modal("hide");
+});
+
+let deleteIngredientId = null;
+
+$(".open-delete-modal").click(function(event){
+    deleteIngredientId = $(this).attr("ingredientId");
+});
+
+$('.delete-ingredient-button').click(async function(e){
+    await $.ajax({
+        data: {
+            id: deleteIngredientId
+        },
+        type: 'DELETE',
+        url: deleteUrl
+    });
+
+    $("#delete-modal").modal("hide");
 });

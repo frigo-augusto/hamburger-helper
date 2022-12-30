@@ -42,6 +42,12 @@ class ViewParameterService
             $combos[$i] = new \stdClass();
             $combos[$i]->id = $i + 1;
             $combos[$i]->name = "combola" . ($i + 1);
+            for($j = 0; $j< rand(1, 5); $j++) {
+                $combos[$i]->products[$j] = new \stdClass();
+                $combos[$i]->products[$j]->name = "habugue". ($j + 1);
+                $combos[$i]->products[$j]->id = $j + 1;
+                $combos[$i]->products[$j]->amount = rand(1,4);
+            }
         }
         return $combos;
     }
@@ -51,7 +57,13 @@ class ViewParameterService
         for($i = 0; $i < 100; $i++){
             $produtos[$i] = new \stdClass();
             $produtos[$i]->id = $i + 1;
-            $produtos[$i]->name = "batata" . ($i + 1);
+            $produtos[$i]->name = "habugue" . ($i + 1);
+            for($j = 0; $j< rand(1, 5); $j++) {
+                $produtos[$i]->ingredients[$j] = new \stdClass();
+                $produtos[$i]->ingredients[$j]->name = "alface". ($j + 1);
+                $produtos[$i]->ingredients[$j]->id = $j + 1;
+                $produtos[$i]->ingredients[$j]->amount = rand(1,4);
+            }
         }
         return $produtos;
     }

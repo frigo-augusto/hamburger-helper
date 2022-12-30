@@ -64,9 +64,9 @@ $("#edit-form").submit(async function(event){
 
     await $.ajax({
         data: {
-                data: arr,
-                itemId: nextId,
-                name: name},
+            data: arr,
+            itemId: nextId,
+            name: name},
         type: 'put',
         url: $(this).attr('action'),
         success: function(){
@@ -78,17 +78,60 @@ $("#edit-form").submit(async function(event){
             //window.location.href = '/administrador-produtos';
         }
     });
+
+    $("#edit-modal").modal("hide");
     return false;
 });
 
-$(document).on("click", ".delete-product-button", async function(e){
-    var id = $(this).attr("productId");
+$('#new-modal').on('hidden.bs.modal', function (e) {
+    $(this)
+        .find("input")
+        .val('')
+        .end()
+    $('input').prop('checked', false)
+})
 
+$('#edit-modal').on('hidden.bs.modal', function (e) {
+    $(this)
+        .find("input")
+        .val('')
+        .end()
+    $('input').prop('checked', false)
+})
+
+let productClickedId = null;
+
+$(".edit-button").click(function(){
+    productClickedId = $(this).attr("itemId");
+
+});
+
+$('#edit-modal').on('shown.bs.modal', function() {
+    while(productClickedId == null);
+    let tempProduct = productData.filter( (p) => p.id == productClickedId);
+    let currentProduct = tempProduct[0];
+    $('#item-name').val(currentProduct.name);
+    currentProduct.ingredients.forEach(function(i){
+        $('#input-has-ingredient' + i.id).prop('checked', true);
+        $("#input-ingredient" + i.id).val(i.amount);
+    });
+    productClickedId = null;
+});
+
+let deleteProductId = null;
+
+$(".open-delete-modal").click(function(event){
+    deleteProductId = $(this).attr("productId");
+});
+
+$('.delete-product-button').click(async function(e){
     await $.ajax({
         data: {
-            id: id
+            id: deleteProductId
         },
         type: 'DELETE',
         url: deleteUrl
     });
+
+    $("#delete-modal").modal("hide");
 });

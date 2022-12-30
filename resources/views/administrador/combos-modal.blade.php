@@ -18,9 +18,9 @@
                         </tr>
                         @foreach($produtos as $p)
                             <tr>
-                                <td><input type="checkbox" productId="{{@$p->id}}" name="product{{@$p->id}}"/></td>
+                                <td><input type="checkbox" productId="{{@$p->id}}" id="input-has-product{{@$p->id}}" name="product{{@$p->id}}"/></td>
                                 <td>{{@$p->name}}</td>
-                                <td><input type="number" productId="{{@$p->id}}" name="product{{@$p->id}}amount"/></td>
+                                <td><input type="number" productId="{{@$p->id}}" id="input-product{{@$p->id}}" name="product{{@$p->id}}amount"/></td>
                             </tr>
                         @endforeach
                     </table>
@@ -64,6 +64,21 @@
             </div>
             <div class="modal-footer">
                 <button type="submit" form="new-form" class="btn btn-primary">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal-title">Deseja excluir este combo?</h5>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success delete-combo-button">Confirmar</button>
+                <button class="btn btn-danger" data-toggle="modal" data-target="#delete-modal">Cancelar</button>
             </div>
         </div>
     </div>

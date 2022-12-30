@@ -44,3 +44,18 @@
         </div>
     </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal-title">Deseja excluir este ingrediente?</h5>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success delete-ingredient-button">Confirmar</button>
+                <button class="btn btn-danger" data-toggle="modal" data-target="#delete-modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>

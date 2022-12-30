@@ -73,17 +73,61 @@ $("#edit-form").submit(async function(event){
             url = url.replace(':errors', 'true');
         }
     });
+
+    $("#edit-modal").modal("hide");
     return false;
 })
 
-$(document).on("click", ".delete-combo-button", async function(e){
-    var id = $(this).attr("comboId");
+$('#new-modal').on('hidden.bs.modal', function (e) {
+    $(this)
+        .find("input")
+        .val('')
+        .end()
+    $('input').prop('checked', false)
+})
 
+$('#edit-modal').on('hidden.bs.modal', function (e) {
+    $(this)
+        .find("input")
+        .val('')
+        .end()
+    $('input').prop('checked', false)
+})
+
+let comboClickedId = null;
+
+$(".edit-button").click(function(){
+    comboClickedId = $(this).attr("itemId");
+});
+
+$('#edit-modal').on('shown.bs.modal', function() {
+    while(comboClickedId == null);
+    let tempCombo = comboData.filter( (p) => p.id == comboClickedId);
+    let currentCombo = tempCombo[0];
+    $('#item-name').val(currentCombo.name);
+    currentCombo.products.forEach(function(i){
+        $('#input-has-product' + i.id).prop('checked', true);
+        $("#input-product" + i.id).val(i.amount);
+    });
+    comboClickedId = null;
+});
+
+let deleteComboId = null;
+
+$(".open-delete-modal").click(function(event){
+    deleteComboId = $(this).attr("comboId");
+});
+
+$('.delete-combo-button').click(async function(e){
     await $.ajax({
         data: {
-            id: id
+            id: deleteComboId
         },
         type: 'DELETE',
         url: deleteUrl
     });
+
+    $("#delete-modal").modal('hide');
 });
+
+

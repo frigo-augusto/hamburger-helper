@@ -25,8 +25,8 @@
                     <tr>
                         <td>{{@$p->id}}</td>
                         <td>{{@$p->name}}</td>
-                        <td><button class="open-modal btn btn-warning" data-toggle="modal" data-target="#edit-modal" itemId="{{@$p->id}}">Editar</button></td>
-                        <td><button class="open-modal btn btn-danger delete-product-button" data-toggle="modal" data-target="#delete-modal" productId="{{@$p->id}}">Excluir</button></td>
+                        <td><button class="open-modal btn btn-warning edit-button" data-toggle="modal" data-target="#edit-modal" itemId="{{@$p->id}}">Editar</button></td>
+                        <td><button class="open-modal btn btn-danger open-delete-modal" data-toggle="modal" data-target="#delete-modal" productId="{{@$p->id}}">Excluir</button></td>
                     </tr>
                 @endforeach
             </table>
@@ -43,6 +43,8 @@
 <script>
     let url = "{{route('administrador', ":errors")}}"
     let deleteUrl = "{{route('administrador.excluir-produtos')}}"
+    let productData = {!! json_encode($produtos) !!};
+    console.log(productData);
 </script>
 @section('script')
     {{ url('js/administrador/produtos.js')}}
