@@ -28,9 +28,7 @@ class ViewController extends Controller
         $orderTypes = ViewParameterService::getOrderTypes();
         return view('atendente.adicionar', [
             "combo" => $orderTypes->combo,
-            "hamburger" =>  $orderTypes->hamburger,
-            "bebida" => $orderTypes->bebida,
-            "acompanhamento" => $orderTypes->acompanhamento
+            "order" =>  $orderTypes->order,
         ]);
     }
 

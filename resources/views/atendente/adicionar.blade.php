@@ -16,9 +16,7 @@
         <section class="d-flex flex-row m-1">
             <section class="d-flex flex-column" id="category-container">
                 <button class="btn btn-danger m-3 p-5 mb-5 mt-4 category-button" id="combo-button">Combo</button>
-                <button class="btn btn-danger m-3 p-5 mb-5 category-button" id="hamburger-button">Hambúrguer</button>
-                <button class="btn btn-danger m-3 p-5 mb-5 category-button" id="bebida-button">Bebida</button>
-                <button type="button" class="btn btn-danger m-3 p-5 mb-5 category-button" id="acompanhamento-button">Acompanhamento</button>
+                <button class="btn btn-danger m-3 p-5 mb-5 category-button" id="hamburger-button">Pedido</button>
             </section>
             <section class="bg-primary bg-gradient m-4 w-100 d-flex flex-column align-items-center justify-content-center">
                 <form method="POST" action="{{route('submit-order')}}" class="bg-light" id="table-form">
@@ -43,11 +41,11 @@
                             <th>Id</th>
                             <th>Nome</th>
                         </tr>
-                        @foreach($hamburger as $h)
+                        @foreach($order as $o)
                             <tr>
-                                <td><input type="checkbox" order-id="{{@$h->id}}" name="hamburger{{@$h->id}}" origin="hamburger"/></td>
-                                <td>{{@$h->id}}</td>
-                                <td>{{@$h->nome}}</td>
+                                <td><input type="checkbox" order-id="{{@$o->id}}" name="hamburger{{@$o->id}}" origin="hamburger"/></td>
+                                <td>{{@$o->id}}</td>
+                                <td>{{@$o->nome}}</td>
                             </tr>
                         @endforeach
                     </table>
@@ -58,28 +56,6 @@
                             <th>Id</th>
                             <th>Nome</th>
                         </tr>
-                        @foreach($bebida as $b)
-                            <tr>
-                                <td><input type="checkbox" order-id="{{@$b->id}}" name="bebida{{@$b->id}}" origin="bebida"/></td>
-                                <td>{{@$b->id}}</td>
-                                <td>{{@$b->nome}}</td>
-                            </tr>
-                        @endforeach
-                    </table>
-
-                    <table class="table table-bordered order-table" id="acompanhamento-table">
-                        <tr>
-                            <th>Check</th>
-                            <th>Id</th>
-                            <th>Nome</th>
-                        </tr>
-                        @foreach($acompanhamento as $a)
-                            <tr>
-                                <td><input type="checkbox" order-id="{{@$a->id}}" name="acompanhamento{{@$a->id}}" origin="acompanhamento"/></td>
-                                <td>{{@$a->id}}</td>
-                                <td>{{@$a->nome}}</td>
-                            </tr>
-                        @endforeach
                     </table>
 
                 </form>

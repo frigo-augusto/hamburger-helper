@@ -21,17 +21,11 @@ class ViewParameterService
         $orderTypes = new \stdClass();
         for($i = 1; $i <= 100; $i++){
             $orderTypes->combo[$i - 1] = new \stdClass();
-            $orderTypes->hamburger[$i-1] = new \stdClass();
-            $orderTypes->bebida[$i-1] = new \stdClass();
-            $orderTypes->acompanhamento[$i - 1] = new \stdClass();
+            $orderTypes->order[$i-1] = new \stdClass();
             $orderTypes->combo[$i - 1]->id = $i;
             $orderTypes->combo[$i - 1]->nome = "combo" . $i;
-            $orderTypes->hamburger[$i-1]->id = $i;
-            $orderTypes->hamburger[$i-1]->nome = "hamburger" . $i;
-            $orderTypes->bebida[$i-1]->id = $i;
-            $orderTypes->bebida[$i-1]->nome = "bebida". $i;
-            $orderTypes->acompanhamento[$i - 1]->id = $i;
-            $orderTypes->acompanhamento[$i - 1]->nome = "acompanhamento" . $i;
+            $orderTypes->order[$i-1]->id = $i;
+            $orderTypes->order[$i-1]->nome = "hamburger" . $i;
         }
         return $orderTypes;
     }
