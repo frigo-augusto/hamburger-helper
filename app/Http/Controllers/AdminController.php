@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
+    public function  criarProdutos(Request $request){
+        echo $request;
+    }
+
     public function editarProdutos(Request $request){
         if ($request->data != null)
             {

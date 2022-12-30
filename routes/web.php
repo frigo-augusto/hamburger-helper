@@ -35,6 +35,7 @@ Route::delete('/finalizar-order', [OrderController::class, 'finalizar'])->name('
 
 Route::get('/administrador/{errors?}', [ViewController::class, 'administrador'])->name('administrador');
 Route::get('/administrador-produtos', [ViewController::class, 'administradorProdutos'])->name('administrador.produtos');
+Route::post('/administrador-criar-produtos', [AdminController::class, 'criarProdutos'])->name('administrador.criar-produtos');
 Route::put('/administrador-editar-produtos', [AdminController::class, 'editarProdutos'])->name('administrador.editar-produtos');
 Route::delete('/administrador-editar-produtos', [AdminController::class, 'excluirProdutos'])->name('administrador.excluir-produtos');
 Route::get('/administrador-combos', [ViewController::class, 'administradorCombos'])->name('administrador.combos');
