@@ -8,6 +8,8 @@
             <div class="modal-body">
                 <form method="post" action="{{route('administrador.editar-produtos')}}" id="edit-form">
                     <input type="hidden" id="item-id" name="item-id"/>
+                    <label for="item-name">Nome</label>
+                    <input type="text" class="form-control" id="item-name">
                     <table>
                         <tr class="px-10 pb-10">
                             <th>Check</th>
@@ -18,7 +20,7 @@
                             <tr>
                                 <td><input type="checkbox" ingredientId="{{@$i->id}}" name="ingredient{{@$i->id}}"/></td>
                                 <td>{{@$i->name}}</td>
-                                <td>{{@$i->amount}}</td>
+                                <td><input type="number" ingredientId="{{@$i->id}}" name="ingredient{{@$i->id}}amount"/></td>
                             </tr>
                         @endforeach
                     </table>
@@ -53,7 +55,7 @@
                             <tr>
                                 <td><input type="checkbox" ingredientId="{{@$i->id}}" name="ingredient{{@$i->id}}"/></td>
                                 <td>{{@$i->name}}</td>
-                                <td>{{@$i->amount}}</td>
+                                <td><input type="number" ingredientId="{{@$i->id}}" name="ingredient{{@$i->id}}amount"/></td>
                             </tr>
                         @endforeach
                     </table>

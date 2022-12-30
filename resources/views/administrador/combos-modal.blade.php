@@ -8,15 +8,19 @@
             <div class="modal-body">
                 <form method="post" action="{{route('administrador.editar-combos')}}" id="edit-form">
                     <input type="hidden" id="item-id" name="item-id"/>
+                    <label for="item-name">Nome</label>
+                    <input type="text" class="form-control" id="item-name">
                     <table>
                         <tr class="px-10 pb-10">
                             <th>Check</th>
                             <th>Produto</th>
+                            <th>Quantidade</th>
                         </tr>
                         @foreach($produtos as $p)
                             <tr>
                                 <td><input type="checkbox" productId="{{@$p->id}}" name="product{{@$p->id}}"/></td>
                                 <td>{{@$p->name}}</td>
+                                <td><input type="number" productId="{{@$p->id}}" name="product{{@$p->id}}amount"/></td>
                             </tr>
                         @endforeach
                     </table>
@@ -51,7 +55,7 @@
                             <tr>
                                 <td><input type="checkbox" productId="{{@$p->id}}" name="product{{@$p->id}}"/></td>
                                 <td>{{@$p->name}}</td>
-                                <td>{{@$p->amount}}</td>
+                                <td><input type="number" productId="{{@$p->id}}" name="product{{@$p->id}}amount"/></td>
                             </tr>
                         @endforeach
                     </table>

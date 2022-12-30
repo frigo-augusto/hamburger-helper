@@ -20,10 +20,11 @@ $("#new-form").submit(async function(event){
     $(this).serializeArray().forEach(function(item){
             arr[i] = new Object();
             arr[i].id = $('input[name="' + item.name + '"]').attr("ingredientId");
+            arr[i].amount = $('input[name="' + item.name + 'amount"]').val();
             i++;
         }
     );
-    arr = arr.filter((a) => a.id != null);
+    arr = arr.filter((a) => a.id != null && a.amount != null);
 
     await $.ajax({
         data: {
@@ -47,20 +48,25 @@ $("#new-form").submit(async function(event){
 $("#edit-form").submit(async function(event){
     event.preventDefault();
     $("#item-id").val(nextId);
+    var name = $('#item-name').val();
 
     let i = 0;
     let arr = new Array();
     $(this).serializeArray().forEach(function(item){
             arr[i] = new Object();
             arr[i].id = $('input[name="' + item.name + '"]').attr("ingredientId");
+            arr[i].amount = $('input[name="' + item.name + 'amount"]').val();
             i++;
         }
     );
-    arr = arr.filter((a) => a.id != null);
+    arr = arr.filter((a) => a.id != null && a.amount != null);
     console.log(arr);
 
     await $.ajax({
-        data: {data: arr, itemId: nextId},
+        data: {
+                data: arr,
+                itemId: nextId,
+                name: name},
         type: 'put',
         url: $(this).attr('action'),
         success: function(){
