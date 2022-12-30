@@ -18,6 +18,7 @@ return new class extends Migration
             $table->timestamps();
             $table->bigInteger('combo_id')->unsigned();
             $table->bigInteger('item_id')->unsigned();
+            $table->integer('amount');
             $table->foreign('combo_id')->references('id')->on('combos');
             $table->foreign('item_id')->references('id')->on('items');
         });
