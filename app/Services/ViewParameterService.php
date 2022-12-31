@@ -45,6 +45,15 @@ class ViewParameterService
             $combos[$i] = new \stdClass();
             $combos[$i]->id = $combosDB[$i]->id;
             $combos[$i]->name = $combosDB[$i]->name;
+
+            $products = array();
+            for ($j = 0; $j < $combosDB[$i]->item->count(); $j++){
+                $products[$j] = new \stdClass();
+                $products[$j]->name = $combosDB[$i]->item[$j]->name;
+                $products[$j]->id = $combosDB[$i]->item[$j]->id;
+                $products[$j]->amount = $combosDB[$i]->item[$j]->pivot->amount;
+            }
+            $combos[$i]->products = $products;
         }
         return $combos;
     }

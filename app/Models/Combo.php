@@ -19,7 +19,8 @@ class Combo extends Model
     }
 
     public function item(){
-        return $this->belongsToMany(Item::class, 'combos_items');
+        return $this->belongsToMany(Item::class, 'combos_items')
+            ->withPivot('amount');
     }
 
 }

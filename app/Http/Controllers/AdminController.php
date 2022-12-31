@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Combo;
 use App\Models\Ingredient;
 use App\Models\Item;
 use Illuminate\Http\Request;
@@ -61,10 +62,33 @@ class AdminController extends Controller
     }
 
     public function criarCombos(Request $request){
-        echo $request;
+        if ($request->data != null)
+        {
+            $combo = Combo::create(array('name' => $request->name));
+
+            foreach ($request->data as $item)
+            {
+                $combo->item()->attach($item['id'], ['amount' => $item['amount']]);
+            }
+            $combo->save();
+        }
+    }
+
+    public function editarCombos(Request $request){
+        if ($request->data != null) {
+            $combo = Combo::find($request->itemId);
+
+            $combo->name = $request->name;
+            $combo->item()->detach();
+
+            foreach ($request->data as $item) {
+                $combo->item()->attach($item['id'], ['amount' => $item['amount']]);
+            }
+            $combo->save();
+        }
     }
 
     public function excluirCombos(Request $request){
-        Item::destroy($request->id);
+        Combo::destroy($request->id);
     }
 }
