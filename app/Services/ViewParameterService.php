@@ -57,6 +57,16 @@ class ViewParameterService
             $produtos[$i] = new \stdClass();
             $produtos[$i]->id = $prodBD[$i]->id;
             $produtos[$i]->name = $prodBD[$i]->name;
+
+            $ings = array();
+            for ($j = 0; $j < $prodBD[$i]->ingredient->count(); $j++){
+                $ings[$j] = new \stdClass();
+                $ings[$j]->name = $prodBD[$i]->ingredient[$j]->name;
+                $ings[$j]->id = $prodBD[$i]->ingredient[$j]->id;
+                $ings[$j]->amount = $prodBD[$i]->ingredient[$j]->pivot->amount;
+            }
+
+            $produtos[$i]->ingredients = $ings;
         }
         return $produtos;
     }

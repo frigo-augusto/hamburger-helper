@@ -9,23 +9,6 @@ use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
-    public function editarProdutos(Request $request){
-        if ($request->data != null)
-        {
-            $item = Item::find($request->itemId);
-
-            $item->name = $request->name;
-            $item->ingredient()->detach();
-
-            foreach ($request->data as $ingredient)
-            {
-                $item->ingredient()->attach($ingredient['id'], ['amount' => $ingredient['amount']]);
-            }
-
-            $item->save();
-        }
-    }
-
     public function criarIngredientes(Request $request){
         $ingredientData = array('name' => $request->name, 'amount' => $request->amount);
         Ingredient::create($ingredientData);
@@ -56,8 +39,29 @@ class AdminController extends Controller
         }
     }
 
+    public function editarProdutos(Request $request){
+        if ($request->data != null)
+        {
+            $item = Item::find($request->itemId);
+
+            $item->name = $request->name;
+            $item->ingredient()->detach();
+
+            foreach ($request->data as $ingredient)
+            {
+                $item->ingredient()->attach($ingredient['id'], ['amount' => $ingredient['amount']]);
+            }
+
+            $item->save();
+        }
+    }
+
     public function excluirProdutos(Request $request){
         Item::destroy($request->id);
+    }
+
+    public function criarCombos(Request $request){
+        echo $request;
     }
 
     public function excluirCombos(Request $request){
