@@ -27,7 +27,8 @@ class AdminController extends Controller
     }
 
     public function criarIngredientes(Request $request){
-        echo $request;
+        $ingredientData = array('name' => $request->name, 'amount' => $request->amount);
+        Ingredient::create($ingredientData);
     }
 
     public function editarIngredientes(Request $request){
@@ -35,32 +36,27 @@ class AdminController extends Controller
     }
 
     public function excluirIngredientes(Request $request){
-        $ingredient = Ingredient::find($request->id);
-        if ($ingredient)
-        {
-            $ingredient->delete();
-        }
-        $a = DB::table('ingredients')->select('*')->get();
-        echo $a;
+        Ingredient::destroy($request->id);
     }
 
     public function  criarProdutos(Request $request){
-        echo $request;
+        /*if ($request->data != null)
+        {
+            $item = Item::create(array('name' => $request->name));
+
+            foreach ($request->data as $ingredient)
+            {
+                $item->ingredient()->attach($ingredient['id'], ['amount' => $ingredient['amount']]);
+            }
+            $item->save();
+        }*/
     }
 
     public function excluirProdutos(Request $request){
-        $item = Item::find($request->id);
-        if($item)
-        {
-            $item->delete();
-        }
+        Item::destroy($request->id);
     }
 
     public function excluirCombos(Request $request){
-        $combo = Item::find($request->id);
-        if($combo)
-        {
-            $combo->delete();
-        }
+        Item::destroy($request->id);
     }
 }

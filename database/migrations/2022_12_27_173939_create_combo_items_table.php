@@ -19,8 +19,8 @@ return new class extends Migration
             $table->bigInteger('combo_id')->unsigned();
             $table->bigInteger('item_id')->unsigned();
             $table->integer('amount');
-            $table->foreign('combo_id')->references('id')->on('combos');
-            $table->foreign('item_id')->references('id')->on('items');
+            $table->foreign('combo_id')->references('id')->on('combos')->onDelete('cascade');
+            $table->foreign('item_id')->references('id')->on('items')->onDelete('cascade');
         });
     }
 
