@@ -52,9 +52,9 @@
                         </tr>
                         @foreach($produtos as $p)
                             <tr>
-                                <td><input type="checkbox" productId="{{@$p->id}}" name="product{{@$p->id}}"/></td>
+                                <td><input type="checkbox" productId="{{@$p->id}}" name="new-product{{@$p->id}}"/></td>
                                 <td>{{@$p->name}}</td>
-                                <td><input type="number" productId="{{@$p->id}}" name="product{{@$p->id}}amount"/></td>
+                                <td><input type="number" productId="{{@$p->id}}" name="new-product{{@$p->id}}amount"/></td>
                             </tr>
                         @endforeach
                     </table>

@@ -20,8 +20,8 @@ $("#new-form").submit(async function(event){
     let arr = new Array();
     $(this).serializeArray().forEach(function(item){
             arr[i] = new Object();
-            arr[i].id = $('input[name="' + item.name + '"]').attr("ingredientId");
-            arr[i].amount = $('input[name="' + item.name + 'amount"]').val();
+            arr[i].id = $('input[name="new-' + item.name + '"]').attr("ingredientId");
+            arr[i].amount = $('input[name="new-' + item.name + 'amount"]').val();
             i++;
         }
     );
