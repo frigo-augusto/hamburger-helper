@@ -69,6 +69,7 @@ class ViewParameterService
             $ingredients[$i] = new \stdClass();
             $ingredients[$i]->id = $ingBD[$i]->id;
             $ingredients[$i]->name = $ingBD[$i]->name;
+            $ingredients[$i]->amount = $ingBD[$i]->amount;
         }
         return $ingredients;
     }

@@ -32,7 +32,11 @@ class AdminController extends Controller
     }
 
     public function editarIngredientes(Request $request){
-        echo $request;
+        $ing = Ingredient::find($request->id);
+        $ing->name = $request->name;
+        $ing->amount = $request->amount;
+
+        $ing->save();
     }
 
     public function excluirIngredientes(Request $request){
@@ -40,7 +44,7 @@ class AdminController extends Controller
     }
 
     public function  criarProdutos(Request $request){
-        /*if ($request->data != null)
+        if ($request->data != null)
         {
             $item = Item::create(array('name' => $request->name));
 
@@ -49,7 +53,7 @@ class AdminController extends Controller
                 $item->ingredient()->attach($ingredient['id'], ['amount' => $ingredient['amount']]);
             }
             $item->save();
-        }*/
+        }
     }
 
     public function excluirProdutos(Request $request){
