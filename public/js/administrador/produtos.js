@@ -13,7 +13,8 @@ $(".open-modal").click(function(event){
 
 $("#new-form").submit(async function(event){
     event.preventDefault();
-    var name = $('#item-name').val();
+    var name = $('#new-item-name').val();
+    console.log(name);
 
     let i = 0;
     let arr = new Array();
@@ -56,7 +57,7 @@ $("#new-form").submit(async function(event){
 $("#edit-form").submit(async function(event){
     event.preventDefault();
     $("#item-id").val(nextId);
-    var name = $('#item-name').val();
+    var name = $('#edit-item-name').val();
 
     let i = 0;
     let arr = new Array();

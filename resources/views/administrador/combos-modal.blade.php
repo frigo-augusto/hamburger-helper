@@ -8,8 +8,8 @@
             <div class="modal-body">
                 <form method="post" action="{{route('administrador.editar-combos')}}" id="edit-form">
                     <input type="hidden" id="item-id" name="item-id"/>
-                    <label for="item-name">Nome</label>
-                    <input type="text" class="form-control" id="item-name">
+                    <label for="edit-item-name">Nome</label>
+                    <input type="text" class="form-control" id="edit-item-name">
                     <table>
                         <tr class="px-10 pb-10">
                             <th>Check</th>
@@ -42,8 +42,8 @@
             </div>
             <div class="modal-body">
                 <form method="post" action="{{route('administrador.criar-combos')}}" id="new-form">
-                    <label for="item-name">Nome</label>
-                    <input type="text" class="form-control" id="item-name">
+                    <label for="new-item-name">Nome</label>
+                    <input type="text" class="form-control" id="new-item-name">
                     <table>
                         <tr class="px-10 pb-10">
                             <th>Check</th>
