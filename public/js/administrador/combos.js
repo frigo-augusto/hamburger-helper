@@ -18,8 +18,8 @@ $("#new-form").submit(async function(event){
     let arr = new Array();
     $(this).serializeArray().forEach(function(item){
             arr[i] = new Object();
-            arr[i].id = $('input[name="new-' + item.name + '"]').attr("productId");
-            arr[i].amount = $('input[name="new-' + item.name + 'amount"]').val();
+            arr[i].id = $('input[name="' + item.name + '"]').attr("productId");
+            arr[i].amount = $('input[name="' + item.name + 'amount"]').val();
             i++;
         }
     );
@@ -34,11 +34,11 @@ $("#new-form").submit(async function(event){
         url: $(this).attr('action'),
         success: function(){
             url = url.replace(':errors', 'false');
-            window.location.href= url;
+            //window.location.href= url;
         },
         error: function(){
             url = url.replace(':errors', 'true');
-            window.location.href = url;
+            //window.location.href = url;
         }
     });
 
