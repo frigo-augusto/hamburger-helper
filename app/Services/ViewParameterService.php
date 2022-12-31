@@ -15,7 +15,7 @@ class ViewParameterService
 
         for($i = 0; $i < $pedidosDB->count(); $i++){
             $pedidos[$i] = new \stdClass();
-            $pedidos[$i]->id = $i + 1;
+            $pedidos[$i]->id = $pedidosDB[$i]->id;
             for($j = 0; $j < $pedidosDB[$i]->item->count(); $j++){
                 $pedidos[$i]->item[$j] = new \stdClass();
                 $pedidos[$i]->item[$j]->nome = $pedidosDB[$i]->item[$j]->nome;
@@ -43,7 +43,7 @@ class ViewParameterService
 
         for($i = 0; $i < $combosDB->count(); $i++){
             $combos[$i] = new \stdClass();
-            $combos[$i]->id = $i + 1;
+            $combos[$i]->id = $combosDB[$i]->id;
             $combos[$i]->name = $combosDB[$i]->name;
         }
         return $combos;
@@ -55,7 +55,7 @@ class ViewParameterService
 
         for($i = 0; $i < $prodBD->count(); $i++){
             $produtos[$i] = new \stdClass();
-            $produtos[$i]->id = $i + 1;
+            $produtos[$i]->id = $prodBD[$i]->id;
             $produtos[$i]->name = $prodBD[$i]->name;
         }
         return $produtos;
@@ -67,7 +67,7 @@ class ViewParameterService
 
         for($i = 0; $i < $ingBD->count(); $i++){
             $ingredients[$i] = new \stdClass();
-            $ingredients[$i]->id = $i + 1;
+            $ingredients[$i]->id = $ingBD[$i]->id;
             $ingredients[$i]->name = $ingBD[$i]->name;
         }
         return $ingredients;
