@@ -119,7 +119,7 @@ $('#edit-modal').on('shown.bs.modal', function() {
     while(productClickedId == null);
     let tempProduct = productData.filter( (p) => p.id == productClickedId);
     let currentProduct = tempProduct[0];
-    $('#item-name').val(currentProduct.name);
+    $('#edit-item-name').val(currentProduct.name);
     currentProduct.ingredients.forEach(function(i){
         $('#input-has-ingredient' + i.id).prop('checked', true);
         $("#input-ingredient" + i.id).val(i.amount);

@@ -112,7 +112,7 @@ $('#edit-modal').on('shown.bs.modal', function() {
     while(comboClickedId == null);
     let tempCombo = comboData.filter( (p) => p.id == comboClickedId);
     let currentCombo = tempCombo[0];
-    $('#item-name').val(currentCombo.name);
+    $('#edit-item-name').val(currentCombo.name);
     currentCombo.products.forEach(function(i){
         $('#input-has-product' + i.id).prop('checked', true);
         $("#input-product" + i.id).val(i.amount);

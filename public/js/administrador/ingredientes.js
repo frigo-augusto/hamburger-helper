@@ -54,6 +54,7 @@ $(".open-edit-modal").click(function(event){
 });
 
 $('#edit-modal').on('shown.bs.modal', function() {
+    while(ingredientId == null);
     let tempIngredient = ingredientData.filter( (p) => p.id == ingredientId);
     let currentIngredient = tempIngredient[0];
     $('#item-edit-name').val(currentIngredient.name);
