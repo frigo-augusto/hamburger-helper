@@ -23,7 +23,7 @@ $("#new-form").submit(async function(event){
             i++;
         }
     );
-    arr = arr.filter((a) => a.id != null && a.amount != null);
+    arr = arr.filter((a) => a.id != null && a.amount > 0);
 
     await $.ajax({
         data: {
@@ -65,8 +65,6 @@ $("#edit-form").submit(async function(event){
             i++;
         }
     );
-    arr = arr.filter((a) => a.id != null && a.amount != null);
-    console.log(arr);
 
     await $.ajax({
         data: {data: arr,
