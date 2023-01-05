@@ -19,7 +19,7 @@
                 <button class="btn btn-danger m-3 p-5 mb-5 category-button" id="hamburger-button">Pedido</button>
             </section>
             <section class="bg-primary bg-gradient m-4 w-100 d-flex flex-column align-items-center justify-content-center">
-                <form method="POST" action="{{route('submit-order')}}" class="bg-light" id="table-form">
+                <form method="POST" action="{{route('submit-order')}}" class="bg-light m-4" id="table-form">
                     <table class="table table-bordered order-table" id="combo-table">
                         <tr>
                             <th>Check</th>
@@ -28,7 +28,7 @@
                         </tr>
                         @foreach($combo as $c)
                             <tr>
-                                <td><input type="checkbox" order-id="{{@$c->id}}" name="combo{{@$c->id}}" origin="combo"/></td>
+                                <td><input type="number" order-id="{{@$c->id}}" name="combo{{@$c->id}}" origin="combo"/></td>
                                 <td>{{@$c->id}}</td>
                                 <td>{{@$c->nome}}</td>
                             </tr>
@@ -37,27 +37,18 @@
 
                     <table class="table table-bordered order-table" id="hamburger-table">
                         <tr>
-                            <th>Check</th>
+                            <th>Quantidade</th>
                             <th>Id</th>
                             <th>Nome</th>
                         </tr>
                         @foreach($order as $o)
                             <tr>
-                                <td><input type="checkbox" order-id="{{@$o->id}}" name="hamburger{{@$o->id}}" origin="hamburger"/></td>
+                                <td><input type="number" order-id="{{@$o->id}}" name="hamburger{{@$o->id}}" origin="hamburger"/></td>
                                 <td>{{@$o->id}}</td>
                                 <td>{{@$o->nome}}</td>
                             </tr>
                         @endforeach
                     </table>
-
-                    <table class="table table-bordered order-table" id="bebida-table">
-                        <tr>
-                            <th>Check</th>
-                            <th>Id</th>
-                            <th>Nome</th>
-                        </tr>
-                    </table>
-
                 </form>
             </section>
         </section>

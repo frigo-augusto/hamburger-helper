@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class OrderController extends Controller
 {
     public function new(Request $request){
-        throw new \Exception();
+        Log::info($request->data);
     }
 
     public function destroy(Request $request){

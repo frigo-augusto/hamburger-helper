@@ -19,6 +19,7 @@ class ViewParameterService
             for($j = 0; $j < $pedidosDB[$i]->item->count(); $j++){
                 $pedidos[$i]->item[$j] = new \stdClass();
                 $pedidos[$i]->item[$j]->nome = $pedidosDB[$i]->item[$j]->nome;
+                $pedidos[$i]->item[$j]->quantidade = rand(1, 5); //trocar essa linha pelo atributo do banco.
             }
         }
         return $pedidos;

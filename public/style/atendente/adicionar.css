@@ -24,6 +24,11 @@ table{
     overflow-y:scroll;
     height:100%;
     display:block;
+    table-layout: fixed;
+}
+
+th,td {
+    word-wrap: break-word;
 }
 
 .order-table{

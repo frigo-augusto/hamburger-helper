@@ -26,7 +26,7 @@
                         <div>
                             Descrição:
                             @foreach ($p->item as $i)
-                                {{@$i->nome}},
+                                Nome: {{@$i->nome}}, {{@$i->quantidade}}
                             @endforeach
                         </div>
                     </div>
