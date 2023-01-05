@@ -11,6 +11,17 @@
 
 @section('content')
   <main class="bg-secondary w-100 h-100 position-absolute">
+      @if(isset($errors))
+          @if($errors == "false")
+              <div class="alert alert-success m-4 w-75" role="alert">
+                  Pedido adicionado com sucesso!
+              </div>
+          @else
+              <div class="alert alert-danger m-4" role="alert">
+                  Pedido não realizado.
+              </div>
+          @endif
+      @endif
     <section class="bg-warning">
         <div class="d-flex flex-column align-items-center justify-content-center h-100">
             <h1 class="mt-5">Gerenciar Restaurante</h1>
