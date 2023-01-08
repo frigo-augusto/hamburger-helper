@@ -41,11 +41,11 @@
                             <th>Id</th>
                             <th>Nome</th>
                         </tr>
-                        @foreach($order as $o)
+                        @foreach($item as $i)
                             <tr>
-                                <td><input type="number" order-id="{{@$o->id}}" name="hamburger{{@$o->id}}" origin="hamburger"/></td>
-                                <td>{{@$o->id}}</td>
-                                <td>{{@$o->name}}</td>
+                                <td><input type="number" order-id="{{@$i->id}}" name="hamburger{{@$i->id}}" origin="hamburger"/></td>
+                                <td>{{@$i->id}}</td>
+                                <td>{{@$i->name}}</td>
                             </tr>
                         @endforeach
                     </table>

@@ -9,17 +9,33 @@ use App\Models\Order;
 
 class ViewParameterService
 {
-    public static function getOrders(){
+    public static function getUnpaidOrders(){
         $pedidos = array();
-        $pedidosDB = Order::all();
+        $pedidosDB = Order::where('paid', false);
 
         for($i = 0; $i < $pedidosDB->count(); $i++){
             $pedidos[$i] = new \stdClass();
             $pedidos[$i]->id = $pedidosDB[$i]->id;
             for($j = 0; $j < $pedidosDB[$i]->item->count(); $j++){
                 $pedidos[$i]->item[$j] = new \stdClass();
-                $pedidos[$i]->item[$j]->nome = $pedidosDB[$i]->item[$j]->nome;
-                $pedidos[$i]->item[$j]->quantidade = rand(1, 5); //trocar essa linha pelo atributo do banco.
+                $pedidos[$i]->item[$j]->nome = $pedidosDB[$i]->item[$j]->name;
+                $pedidos[$i]->item[$j]->quantidade = $pedidosDB[$i]->item[$j]->amount;
+            }
+        }
+        return $pedidos;
+    }
+
+    public static function getPaidOrders(){
+        $pedidos = array();
+        $pedidosDB = Order::where('paid', true);
+
+        for($i = 0; $i < $pedidosDB->count(); $i++){
+            $pedidos[$i] = new \stdClass();
+            $pedidos[$i]->id = $pedidosDB[$i]->id;
+            for($j = 0; $j < $pedidosDB[$i]->item->count(); $j++){
+                $pedidos[$i]->item[$j] = new \stdClass();
+                $pedidos[$i]->item[$j]->nome = $pedidosDB[$i]->item[$j]->name;
+                $pedidos[$i]->item[$j]->quantidade = $pedidosDB[$i]->item[$j]->amount;
             }
         }
         return $pedidos;
@@ -27,16 +43,8 @@ class ViewParameterService
 
     public static function getOrderTypes(){
         $orderTypes = new \stdClass();
-        /*for($i = 1; $i <= 100; $i++){
-            $orderTypes->combo[$i - 1] = new \stdClass();
-            $orderTypes->order[$i-1] = new \stdClass();
-            $orderTypes->combo[$i - 1]->id = $i;
-            $orderTypes->combo[$i - 1]->nome = "combo" . $i;
-            $orderTypes->order[$i-1]->id = $i;
-            $orderTypes->order[$i-1]->nome = "hamburger" . $i;
-        }*/
         $orderTypes->combo = Combo::all();
-        $orderTypes->order = Item::all();
+        $orderTypes->item = Item::all();
 
         return $orderTypes;
     }

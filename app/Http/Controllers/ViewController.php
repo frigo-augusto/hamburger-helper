@@ -14,7 +14,7 @@ class ViewController extends Controller
     }
 
     public function cozinheiro(){
-        $pedidos = ViewParameterService::getOrders();
+        $pedidos = ViewParameterService::getPaidOrders();
         return view('cozinheiro.main', ["pedidos" => $pedidos]);
     }
 
@@ -28,22 +28,23 @@ class ViewController extends Controller
         $orderTypes = ViewParameterService::getOrderTypes();
         return view('atendente.adicionar', [
             "combo" => $orderTypes->combo,
-            "order" =>  $orderTypes->order,
+            "item" =>  $orderTypes->item,
         ]);
     }
 
     public function caixaPagar(){
-        $pedidos = ViewParameterService::getOrders();
+        $pedidos = ViewParameterService::getUnpaidOrders();
+        return $pedidos;
         return view('caixa.pagar', ["pedidos" => $pedidos]);
     }
 
     public function atendenteExcluir(){
-        $pedidos = ViewParameterService::getOrders();
+        $pedidos = ViewParameterService::getUnpdaidOrders();
         return view('atendente.excluir', ["pedidos" => $pedidos]);
     }
 
     public function caixaExcluir(){
-        $pedidos = ViewParameterService::getOrders();
+        $pedidos = ViewParameterService::getUnpaidOrders();
         return view('caixa.excluir', ["pedidos" => $pedidos]);
     }
 
