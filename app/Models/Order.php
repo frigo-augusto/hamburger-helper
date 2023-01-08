@@ -12,11 +12,13 @@ class Order extends Model
 
     public function combo()
     {
-        return $this->morphedByMany(Combo::class, 'order_combo_item');
+        return $this->morphedByMany(Combo::class, 'order_combo_items')
+            ->withPivot('amount');
     }
 
     public function item()
     {
-        return $this->morphedByMany(Item::class, 'order_combo_item');
+        return $this->morphedByMany(Item::class, 'order_combo_items')
+            ->withPivot('amount');
     }
 }

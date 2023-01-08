@@ -39,7 +39,7 @@ class ViewController extends Controller
     }
 
     public function atendenteExcluir(){
-        $pedidos = ViewParameterService::getUnpdaidOrders();
+        $pedidos = ViewParameterService::getUnpaidOrders();
         return view('atendente.excluir', ["pedidos" => $pedidos]);
     }
 
