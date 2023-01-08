@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->bigInteger('order_id')->unsigned();
-            $table->bigInteger('item_combo_id')->unsigned();
-            $table->string('type');
+            $table->bigInteger('order_combo_items_id')->unsigned();
+            $table->string('order_combo_items_type');
             $table->integer('amount');
-            $table->foreign('order_id')->references('id')->on('orders');
+            $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
         });
     }
 

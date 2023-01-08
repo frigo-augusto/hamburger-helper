@@ -11,7 +11,7 @@ class ViewParameterService
 {
     public static function getUnpaidOrders(){
         $pedidos = array();
-        $pedidosDB = Order::where('paid', false);
+        $pedidosDB = Order::where('paid', false)->get();
 
         for($i = 0; $i < $pedidosDB->count(); $i++){
             $pedidos[$i] = new \stdClass();
@@ -19,7 +19,7 @@ class ViewParameterService
             for($j = 0; $j < $pedidosDB[$i]->item->count(); $j++){
                 $pedidos[$i]->item[$j] = new \stdClass();
                 $pedidos[$i]->item[$j]->nome = $pedidosDB[$i]->item[$j]->name;
-                $pedidos[$i]->item[$j]->quantidade = $pedidosDB[$i]->item[$j]->amount;
+                $pedidos[$i]->item[$j]->quantidade = $pedidosDB[$i]->item[$j]->pivot->amount;
             }
         }
         return $pedidos;
@@ -27,7 +27,7 @@ class ViewParameterService
 
     public static function getPaidOrders(){
         $pedidos = array();
-        $pedidosDB = Order::where('paid', true);
+        $pedidosDB = Order::where('paid', true)->get();
 
         for($i = 0; $i < $pedidosDB->count(); $i++){
             $pedidos[$i] = new \stdClass();
@@ -35,7 +35,7 @@ class ViewParameterService
             for($j = 0; $j < $pedidosDB[$i]->item->count(); $j++){
                 $pedidos[$i]->item[$j] = new \stdClass();
                 $pedidos[$i]->item[$j]->nome = $pedidosDB[$i]->item[$j]->name;
-                $pedidos[$i]->item[$j]->quantidade = $pedidosDB[$i]->item[$j]->amount;
+                $pedidos[$i]->item[$j]->quantidade = $pedidosDB[$i]->item[$j]->pivot->amount;
             }
         }
         return $pedidos;
@@ -100,7 +100,7 @@ class ViewParameterService
             $ingredients[$i] = new \stdClass();
             $ingredients[$i]->id = $ingBD[$i]->id;
             $ingredients[$i]->name = $ingBD[$i]->name;
-            $ingredients[$i]->amount = $ingBD[$i]->amount;
+            $ingredients[$i]->amount = $ingBD[$i]->pivot->amount;
         }
         return $ingredients;
     }

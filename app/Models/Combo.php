@@ -15,7 +15,8 @@ class Combo extends Model
 
     public function order()
     {
-        return $this->morphToMany(Order::class, 'order_combo_items');
+        return $this->morphToMany(Order::class, 'order_combo_items')
+            ->withPivot('amount');
     }
 
     public function item(){

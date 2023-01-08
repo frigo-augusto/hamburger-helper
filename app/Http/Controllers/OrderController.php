@@ -9,11 +9,35 @@ use Illuminate\Support\Facades\Log;
 class OrderController extends Controller
 {
     public function new(Request $request){
-        Log::info($request->data);
+        if ($request->data != null){
+            $order = Order::create();
+
+            foreach ($request->data as $toAdd){
+                if ($toAdd['origin'] == 'combo'){
+                    $order->combo()->attach(
+                        $toAdd['id'],
+                        ['amount' => $toAdd['quantidade']
+                        ]);
+                }
+                else if ($toAdd['origin'] == 'hamburger') {
+                    $order->item()->attach(
+                        $toAdd['id'],
+                        ['amount' => $toAdd['quantidade']
+                        ]);
+                }
+            }
+
+            $order->save();
+        }
     }
 
     public function destroy(Request $request){
-        dd($request->data);
+        $ids = array();
+        foreach ($request->data as $toDestroy)
+        {
+            $ids[] = $toDestroy['id'];
+        }
+        Order::destroy($ids);
     }
 
     public function pagar(Request $request)
