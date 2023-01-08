@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -15,11 +16,14 @@ class OrderController extends Controller
         dd($request->data);
     }
 
-    public function pagar(Request $request){
-        return $request->data;
+    public function pagar(Request $request)
+    {
+        $order = Order::find($request->data->id);
+        $order->paid = true;
+        $order->save();
     }
 
     public function finalizar(Request $request){
-        return "form de finalizar!!";
+        Order::find($request->data->id)->delete();
     }
 }
