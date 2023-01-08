@@ -27,14 +27,17 @@ class ViewParameterService
 
     public static function getOrderTypes(){
         $orderTypes = new \stdClass();
-        for($i = 1; $i <= 100; $i++){
+        /*for($i = 1; $i <= 100; $i++){
             $orderTypes->combo[$i - 1] = new \stdClass();
             $orderTypes->order[$i-1] = new \stdClass();
             $orderTypes->combo[$i - 1]->id = $i;
             $orderTypes->combo[$i - 1]->nome = "combo" . $i;
             $orderTypes->order[$i-1]->id = $i;
             $orderTypes->order[$i-1]->nome = "hamburger" . $i;
-        }
+        }*/
+        $orderTypes->combo = Combo::all();
+        $orderTypes->order = Item::all();
+
         return $orderTypes;
     }
 

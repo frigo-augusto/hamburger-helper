@@ -30,7 +30,7 @@
                             <tr>
                                 <td><input type="number" order-id="{{@$c->id}}" name="combo{{@$c->id}}" origin="combo"/></td>
                                 <td>{{@$c->id}}</td>
-                                <td>{{@$c->nome}}</td>
+                                <td>{{@$c->name}}</td>
                             </tr>
                         @endforeach
                     </table>
@@ -45,7 +45,7 @@
                             <tr>
                                 <td><input type="number" order-id="{{@$o->id}}" name="hamburger{{@$o->id}}" origin="hamburger"/></td>
                                 <td>{{@$o->id}}</td>
-                                <td>{{@$o->nome}}</td>
+                                <td>{{@$o->name}}</td>
                             </tr>
                         @endforeach
                     </table>
