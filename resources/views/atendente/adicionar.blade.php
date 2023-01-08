@@ -43,7 +43,7 @@
                         </tr>
                         @foreach($item as $i)
                             <tr>
-                                <td><input type="number" order-id="{{@$i->id}}" name="hamburger{{@$i->id}}" origin="hamburger"/></td>
+                                <td><input type="number" order-id="{{@$i->id}}" name="hamburger{{@$i->id}}" origin="item"/></td>
                                 <td>{{@$i->id}}</td>
                                 <td>{{@$i->name}}</td>
                             </tr>
