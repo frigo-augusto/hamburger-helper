@@ -6,6 +6,7 @@ use App\Models\Ingredient;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use mysql_xdevapi\Exception;
 
 class OrderController extends Controller
 {
@@ -29,7 +30,6 @@ class OrderController extends Controller
             }
 
             $this->removeEstoque($order);
-            $order->save();
         }
     }
 
@@ -72,21 +72,40 @@ class OrderController extends Controller
 
     private function removeEstoque(Order $order)
     {
+        $valueChange = array();
+
         foreach ($order->combo as $combo){
             foreach ($combo->item as $item){
                 foreach ($item->ingredient as $ing){
-                    $ing->amount -= $combo->pivot->amount * $item->pivot->amount * $ing->pivot->amount;
+                    $valueChange[$ing->id] = ($valueChange[$ing->id] ?? 0) + $combo->pivot->amount * $item->pivot->amount * $ing->pivot->amount;
+                    if ($ing->amount < $valueChange[$ing->id])
+                    {
+                        Order::destroy($order->id);
+                        throw new Exception('Insufficient ingredients in stock.');
+                    }
                 }
             }
         }
 
         foreach ($order->item as $item){
             foreach ($item->ingredient as $ing){
-                $ing->amount -= $item->pivot->amount * $ing->pivot->amount;
+                $valueChange[$ing->id] = ($valueChange[$ing->id] ?? 0) + $item->pivot->amount * $ing->pivot->amount;
+                if ($ing->amount < $valueChange[$ing->id])
+                {
+                    Order::destroy($order->id);
+                    throw new Exception('Insufficient ingredients in stock.');
+                }
             }
         }
 
-        $order->push();
+        $ings = Ingredient::find(array_keys($valueChange));
+        foreach ($ings as $ing)
+        {
+            $ing->amount -= $valueChange[$ing->id];
+            $ing->save();
+        }
+
+        $order->save();
     }
 
     private function restauraEstoque(Order $order)
