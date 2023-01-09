@@ -39,6 +39,13 @@ class OrderController extends Controller
         {
             $ids[] = $toDestroy['id'];
         }
+
+        $orders = Order::find($ids);
+        foreach ($orders as $order)
+        {
+            $this->restauraEstoque($order);
+        }
+
         Order::destroy($ids);
     }
 
@@ -76,6 +83,25 @@ class OrderController extends Controller
         foreach ($order->item as $item){
             foreach ($item->ingredient as $ing){
                 $ing->amount -= $item->pivot->amount * $ing->pivot->amount;
+            }
+        }
+
+        $order->push();
+    }
+
+    private function restauraEstoque(Order $order)
+    {
+        foreach ($order->combo as $combo){
+            foreach ($combo->item as $item){
+                foreach ($item->ingredient as $ing){
+                    $ing->amount += $combo->pivot->amount * $item->pivot->amount + $ing->pivot->amount;
+                }
+            }
+        }
+
+        foreach ($order->item as $item){
+            foreach ($item->ingredient as $ing){
+                $ing->amount += $item->pivot->amount * $ing->pivot->amount;
             }
         }
 

@@ -23,8 +23,8 @@ class ViewParameterService
             }
             for($j = 0; $j < $pedidosDB[$i]->combo->count(); $j++){
                 $pedidos[$i]->combo[$j] = new \stdClass();
-                $pedidos[$i]->combo[$j]->nome = $pedidosDB[$i]->item[$j]->name;
-                $pedidos[$i]->combo[$j]->quantidade = $pedidosDB[$i]->item[$j]->pivot->amount;
+                $pedidos[$i]->combo[$j]->nome = $pedidosDB[$i]->combo[$j]->name;
+                $pedidos[$i]->combo[$j]->quantidade = $pedidosDB[$i]->combo[$j]->pivot->amount;
             }
         }
         return $pedidos;
@@ -44,8 +44,8 @@ class ViewParameterService
             }
             for($j = 0; $j < $pedidosDB[$i]->combo->count(); $j++){
                 $pedidos[$i]->combo[$j] = new \stdClass();
-                $pedidos[$i]->combo[$j]->nome = $pedidosDB[$i]->item[$j]->name;
-                $pedidos[$i]->combo[$j]->quantidade = $pedidosDB[$i]->item[$j]->pivot->amount;
+                $pedidos[$i]->combo[$j]->nome = $pedidosDB[$i]->combo[$j]->name;
+                $pedidos[$i]->combo[$j]->quantidade = $pedidosDB[$i]->combo[$j]->pivot->amount;
             }
         }
 
