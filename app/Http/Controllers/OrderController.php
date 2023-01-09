@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ingredient;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -19,7 +20,7 @@ class OrderController extends Controller
                         ['amount' => $toAdd['quantidade']
                         ]);
                 }
-                else if ($toAdd['origin'] == 'hamburger') {
+                else if ($toAdd['origin'] == 'item') {
                     $order->item()->attach(
                         $toAdd['id'],
                         ['amount' => $toAdd['quantidade']
@@ -27,6 +28,7 @@ class OrderController extends Controller
                 }
             }
 
+            $this->removeEstoque($order);
             $order->save();
         }
     }
@@ -49,5 +51,24 @@ class OrderController extends Controller
 
     public function finalizar(Request $request){
         Order::find($request->data->id)->delete();
+    }
+
+    private function removeEstoque(Order $order)
+    {
+        foreach ($order->combo as $combo){
+            foreach ($combo->item as $item){
+                foreach ($item->ingredient as $ing){
+                    $ing->amount -= $combo->pivot->amount * $item->pivot->amount + $ing->pivot->amount;
+                }
+            }
+        }
+
+        foreach ($order->item as $item){
+            foreach ($item->ingredient as $ing){
+                $ing->amount -= $item->pivot->amount * $ing->pivot->amount;
+            }
+        }
+
+        $order->push();
     }
 }

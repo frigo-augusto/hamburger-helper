@@ -35,17 +35,14 @@ class DatabaseSeeder extends Seeder
 
          foreach (Item::all() as $item){
              for ($i = 0; $i < rand(3, 6); $i++) {
-                 $item->ingredient()->attach(Ingredient::all()->random());
+                 $item->ingredient()->attach(Ingredient::all()->random(), ['amount' => fake()->numberBetween(1, 10)]);
              }
          }
 
         foreach (Combo::all() as $combo){
             for ($i = 0; $i < rand(3, 6); $i++) {
-                $combo->item()->attach(Item::all()->random());
+                $combo->item()->attach(Item::all()->random(), ['amount' => fake()->numberBetween(1, 3)]);
             }
         }
-
-
-         echo \Illuminate\Support\Facades\DB::table('combos_items')->get();
     }
 }
