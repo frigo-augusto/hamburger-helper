@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Ingredient;
 use App\Models\Order;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
-use mysql_xdevapi\Exception;
 
 class OrderController extends Controller
 {
