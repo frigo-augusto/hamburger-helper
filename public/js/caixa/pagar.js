@@ -27,4 +27,5 @@ $("#pagar-form").submit(async function(e){
             window.location.href = atendenteUrl;
         }
     });
+    console.log(arr);
 });

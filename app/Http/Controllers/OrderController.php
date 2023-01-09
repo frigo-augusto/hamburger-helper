@@ -44,13 +44,23 @@ class OrderController extends Controller
 
     public function pagar(Request $request)
     {
-        $order = Order::find($request->data->id);
-        $order->paid = true;
-        $order->save();
+        foreach ($request->data as $data){
+            $order = Order::find($data);
+            $order->paid = true;
+            $order->save();
+        }
     }
 
     public function finalizar(Request $request){
-        Order::find($request->data->id)->delete();
+        $ids = array();
+        $i = 0;
+
+        foreach($request->data as $data){
+            $ids[$i] = $data["id"];
+            $i++;
+        }
+        Order::destroy($ids);
+
     }
 
     private function removeEstoque(Order $order)

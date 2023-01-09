@@ -43,5 +43,5 @@
     {{ url('js/atendente/excluir.js')}}
 @endsection
 <script>
-    let atendenteUrl = '{{route('caixa', ":errors")}}';
+    let atendenteUrl = '{{route('cozinheiro', ":errors")}}';
 </script>

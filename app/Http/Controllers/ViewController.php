@@ -34,7 +34,6 @@ class ViewController extends Controller
 
     public function caixaPagar(){
         $pedidos = ViewParameterService::getUnpaidOrders();
-        return $pedidos;
         return view('caixa.pagar', ["pedidos" => $pedidos]);
     }
 
