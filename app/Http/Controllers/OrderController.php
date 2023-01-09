@@ -75,7 +75,7 @@ class OrderController extends Controller
         foreach ($order->combo as $combo){
             foreach ($combo->item as $item){
                 foreach ($item->ingredient as $ing){
-                    $ing->amount -= $combo->pivot->amount * $item->pivot->amount + $ing->pivot->amount;
+                    $ing->amount -= $combo->pivot->amount * $item->pivot->amount * $ing->pivot->amount;
                 }
             }
         }
@@ -94,7 +94,7 @@ class OrderController extends Controller
         foreach ($order->combo as $combo){
             foreach ($combo->item as $item){
                 foreach ($item->ingredient as $ing){
-                    $ing->amount += $combo->pivot->amount * $item->pivot->amount + $ing->pivot->amount;
+                    $ing->amount += $combo->pivot->amount * $item->pivot->amount * $ing->pivot->amount;
                 }
             }
         }
