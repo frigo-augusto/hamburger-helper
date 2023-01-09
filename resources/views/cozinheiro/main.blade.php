@@ -9,6 +9,17 @@
 
 @section('content')
     <main class="bg-warning w-100 h-100 position-absolute">
+        @if(isset($errors))
+            @if($errors == "false")
+                <div class="alert alert-success m-4 w-75" role="alert">
+                    Pedido adicionado com sucesso!
+                </div>
+            @else
+                <div class="alert alert-danger m-4" role="alert">
+                    Pedido não realizado.
+                </div>
+            @endif
+        @endif
         <div class="w-100" id="return-container">
             <a class="m-5 btn btn-primary" id="return-button" href="{{route('home')}}">Voltar</a>
         </div>
@@ -22,12 +33,17 @@
                                 Código: {{@$p->id}}
                             </div>
                         </div>
+                        @if (isset($p->item))
                         <div>
                             Descrição:
                             @foreach ($p->item as $i)
                                 Nome: {{@$i->nome}}, {{@$i->quantidade}}
                             @endforeach
                         </div>
+                        @endif
+                        @if (isset($p->batata))
+
+                        @endif
                     </div>
                 @endforeach
             </form>

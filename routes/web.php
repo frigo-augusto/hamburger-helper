@@ -21,7 +21,7 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/atendente/{errors?}', [ViewController::class, 'atendente'])->name('atendente');
-Route::get('/cozinheiro', [ViewController::class, 'cozinheiro'])->name('cozinheiro');
+Route::get('/cozinheiro/{errors?}', [ViewController::class, 'cozinheiro'])->name('cozinheiro');
 Route::get('/caixa/{errors?}', [ViewController::class, 'caixa'])->name('caixa');
 Route::get('/atendente-adicionar', [ViewController::class, 'atendenteAdicionar'])->name('atendente.adicionar');
 Route::get('/caixa-pagar', [ViewController::class, 'caixaPagar'])->name('caixa.pagar');

@@ -13,9 +13,11 @@ class ViewController extends Controller
             "errors" => $errors]);
     }
 
-    public function cozinheiro(){
+    public function cozinheiro($errors=null){
         $pedidos = ViewParameterService::getPaidOrders();
-        return view('cozinheiro.main', ["pedidos" => $pedidos]);
+        return view('cozinheiro.main', [
+            "errors" => $errors,
+            "pedidos" => $pedidos]);
     }
 
     public function caixa($errors=null){
@@ -52,7 +54,6 @@ class ViewController extends Controller
     }
 
     public function administradorProdutos(){
-        //$produtos = Produto::all();
         $produtos = ViewParameterService::getAllProducts();
         $ingredientes = ViewParameterService::getAllIngredients();
         return view('administrador.produtos', [

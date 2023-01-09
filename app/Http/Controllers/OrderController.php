@@ -45,7 +45,7 @@ class OrderController extends Controller
     public function pagar(Request $request)
     {
         foreach ($request->data as $data){
-            $order = Order::find($data);
+            $order = Order::find($data)->first();
             $order->paid = true;
             $order->save();
         }
