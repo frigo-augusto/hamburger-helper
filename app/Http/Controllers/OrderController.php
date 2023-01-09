@@ -114,6 +114,7 @@ class OrderController extends Controller
             foreach ($combo->item as $item){
                 foreach ($item->ingredient as $ing){
                     $ing->amount += $combo->pivot->amount * $item->pivot->amount * $ing->pivot->amount;
+                    $ing->save();
                 }
             }
         }
@@ -121,9 +122,8 @@ class OrderController extends Controller
         foreach ($order->item as $item){
             foreach ($item->ingredient as $ing){
                 $ing->amount += $item->pivot->amount * $ing->pivot->amount;
+                $ing->save();
             }
         }
-
-        $order->push();
     }
 }
