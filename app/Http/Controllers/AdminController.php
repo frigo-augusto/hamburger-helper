@@ -35,7 +35,10 @@ class AdminController extends Controller
 
             foreach ($request->data as $ingredient)
             {
-                $item->ingredient()->attach($ingredient['id'], ['amount' => $ingredient['amount']]);
+                if (array_key_exists('amount', $ingredient))
+                {
+                    $item->ingredient()->attach($ingredient['id'], ['amount' => $ingredient['amount']]);
+                }
             }
             $item->save();
         }
@@ -51,7 +54,10 @@ class AdminController extends Controller
 
             foreach ($request->data as $ingredient)
             {
-                $item->ingredient()->attach($ingredient['id'], ['amount' => $ingredient['amount']]);
+                if (array_key_exists('amount', $ingredient))
+                {
+                    $item->ingredient()->attach($ingredient['id'], ['amount' => $ingredient['amount']]);
+                }
             }
 
             $item->save();
@@ -69,7 +75,10 @@ class AdminController extends Controller
 
             foreach ($request->data as $item)
             {
-                $combo->item()->attach($item['id'], ['amount' => $item['amount']]);
+                if (array_key_exists('amount', $item))
+                {
+                    $combo->item()->attach($item['id'], ['amount' => $item['amount']]);
+                }
             }
             $combo->save();
         }
@@ -83,7 +92,10 @@ class AdminController extends Controller
             $combo->item()->detach();
 
             foreach ($request->data as $item) {
-                $combo->item()->attach($item['id'], ['amount' => $item['amount']]);
+                if (array_key_exists('amount', $item))
+                {
+                    $combo->item()->attach($item['id'], ['amount' => $item['amount']]);
+                }
             }
             $combo->save();
         }
