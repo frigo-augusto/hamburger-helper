@@ -11,7 +11,7 @@ class ComboFactory extends Factory
     public function definition()
     {
         return [
-        "name"
+        "name" => fake()->name()
         ];
     }
 }

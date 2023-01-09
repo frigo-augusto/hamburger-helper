@@ -13,13 +13,14 @@ class AdminController extends Controller
     public function criarIngredientes(Request $request){
         $ingredientData = array('name' => $request->name, 'amount' => $request->amount);
         Ingredient::create($ingredientData);
+        $teste2 = DB::table('items_ingredients')->get();
+        echo $teste2;
     }
 
     public function editarIngredientes(Request $request){
         $ing = Ingredient::find($request->id);
         $ing->name = $request->name;
         $ing->amount = $request->amount;
-
         $ing->save();
     }
 

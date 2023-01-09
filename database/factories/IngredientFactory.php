@@ -14,7 +14,7 @@ class IngredientFactory extends Factory
     public function definition()
     {
         return [
-            'name' => fake()->name(),
+            'name' => fake()->word(),
             'amount' => fake()->numberBetween(0, 100)
         ];
     }

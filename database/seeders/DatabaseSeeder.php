@@ -3,8 +3,13 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use App\Models\Ingredient;
+use \App\Models\User;
+use \App\Models\Ingredient;
+use \App\Models\Item;
+use \App\Models\Combo;
+use Illuminate\Database\Eloquent\Factories\Sequence;
 use Illuminate\Database\Seeder;
+use Illuminate\Validation\Rules\In;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,18 +20,32 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         \App\Models\User::factory(10)->create();
+         User::factory(10)->create();
 
-         \App\Models\User::factory()->create([
+         User::factory()->create([
              'name' => 'Test User',
              'email' => 'test@example.com',
          ]);
 
-          \App\Models\Ingredient::factory(50)->create();
+         $combos = Combo::factory(50)->create();
 
-          \App\Models\Item::factory(50)->create();
+         Item::factory(150)->create();
 
-          \App\Models\Item::find(1)->ingredient()->attach( \App\Models\Ingredient::find(1));
+         $ingredients = Ingredient::factory(300)->create();
 
+         foreach (Item::all() as $item){
+             for ($i = 0; $i < rand(3, 6); $i++) {
+                 $item->ingredient()->attach(Ingredient::all()->random());
+             }
+         }
+
+        foreach (Combo::all() as $combo){
+            for ($i = 0; $i < rand(3, 6); $i++) {
+                $combo->item()->attach(Item::all()->random());
+            }
+        }
+
+
+         echo \Illuminate\Support\Facades\DB::table('combos_items')->get();
     }
 }
