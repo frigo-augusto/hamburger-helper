@@ -41,7 +41,7 @@
 
 @endsection
 <script>
-    let url = "{{route('administrador.produtos', ":errors")}}"
+    let url = "{{route('administrador', ":errors")}}"
     let deleteUrl = "{{route('administrador.excluir-produtos')}}"
     let productData = {!! json_encode($produtos) !!};
     console.log(productData);

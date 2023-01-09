@@ -41,7 +41,7 @@
 
 @endsection
 <script>
-    let url = "{{route('administrador.combos', ":errors")}}"
+    let url = "{{route('administrador', ":errors")}}"
     let deleteUrl = "{{route('administrador.excluir-combos')}}"
     let comboData = <?php echo json_encode($combos); ?>;
 </script>
