@@ -15,7 +15,7 @@
             @if(isset($errors))
                 @if($errors == "false")
                     <div class="alert alert-success m-4 w-75" role="alert">
-                        Operação feita com sucesso!
+                        Operação realizada com sucesso!
                     </div>
                 @else
                     <div class="alert alert-danger m-4" role="alert">

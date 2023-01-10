@@ -20,11 +20,11 @@ $("#pagar-form").submit(async function(e){
         url: $(this).attr('action'),
         success: function(){
             atendenteUrl = atendenteUrl.replace(':errors', 'false');
-            //window.location.href= atendenteUrl;
+            window.location.href= atendenteUrl;
         },
         error: function(){
             atendenteUrl = atendenteUrl.replace(':errors', 'true');
-            //window.location.href = atendenteUrl;
+            window.location.href = atendenteUrl;
         }
     });
     console.log(arr);
