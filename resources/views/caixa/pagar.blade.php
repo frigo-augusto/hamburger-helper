@@ -14,7 +14,7 @@
             <a class="m-5 btn btn-primary" id="return-button" href="{{route('home')}}">Voltar</a>
         </div>
         <section class="m-4 w-100 d-flex flex-column align-items-center justify-content-center">
-            <form method="POST" action="{{route('pagar-order')}}" class="bg-light" id="pagar-form">
+            <form method="POST" action="{{route('pagar-order')}}" class="bg-light w-75" id="pagar-form">
                 @foreach ($pedidos as $p)
                     <div class="d-flex flex-column m-3">
                         <div class="d-flex flex-row">
