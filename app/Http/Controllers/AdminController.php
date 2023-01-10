@@ -28,7 +28,7 @@ class AdminController extends Controller
         Ingredient::destroy($request->id);
     }
 
-    public function  criarProdutos(Request $request){
+    public function criarProdutos(Request $request){
         if ($request->data != null)
         {
             $item = Item::create(array('name' => $request->name));

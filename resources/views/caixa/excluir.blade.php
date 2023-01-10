@@ -30,9 +30,20 @@
                         </div>
                         <div>
                             Descrição:
-                            @foreach ($p->item as $i)
-                                Nome: {{@$i->nome}}, {{@$i->quantidade}}
-                            @endforeach
+                            @if (isset($p->item))
+                                <div>
+                                    @foreach ($p->item as $i)
+                                        Nome: {{@$i->nome}}, Quantidade: {{@$i->quantidade}}
+                                    @endforeach
+                                </div>
+                            @endif
+                            @if (isset($p->combo))
+                                <div>
+                                    @foreach ($p->combo as $c)
+                                        Nome: {{@$c->nome}}, Quantidade: {{@$c->quantidade}}
+                                    @endforeach
+                                </div>
+                            @endif
                         </div>
                     </div>
                 @endforeach

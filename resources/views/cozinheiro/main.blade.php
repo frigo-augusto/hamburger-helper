@@ -33,16 +33,20 @@
                                 Código: {{@$p->id}}
                             </div>
                         </div>
+                        Descrição:
                         @if (isset($p->item))
                         <div>
-                            Descrição:
                             @foreach ($p->item as $i)
-                                Nome: {{@$i->nome}}, {{@$i->quantidade}}
+                                Nome: {{@$i->nome}}, Quantidade: {{@$i->quantidade}}
                             @endforeach
                         </div>
                         @endif
-                        @if (isset($p->batata))
-
+                        @if (isset($p->combo))
+                            <div>
+                                @foreach ($p->combo as $c)
+                                    Nome: {{@$c->nome}}, Quantidade: {{@$c->quantidade}}
+                                @endforeach
+                            </div>
                         @endif
                     </div>
                 @endforeach
