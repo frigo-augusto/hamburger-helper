@@ -15,11 +15,11 @@
             @if(isset($errors))
                 @if($errors == "false")
                     <div class="alert alert-success m-4 w-75" role="alert">
-                        Pedido adicionado com sucesso!
+                        Operação feita com sucesso!
                     </div>
                 @else
                     <div class="alert alert-danger m-4" role="alert">
-                        Pedido não realizado.
+                        Operação não realizada.
                     </div>
                 @endif
             @endif
