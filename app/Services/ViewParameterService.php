@@ -42,10 +42,16 @@ class ViewParameterService
                 $pedidos[$i]->item[$j]->nome = $pedidosDB[$i]->item[$j]->name;
                 $pedidos[$i]->item[$j]->quantidade = $pedidosDB[$i]->item[$j]->pivot->amount;
             }
-            for($j = 0; $j < $pedidosDB[$i]->combo->count(); $j++){
-                $pedidos[$i]->combo[$j] = new \stdClass();
-                $pedidos[$i]->combo[$j]->nome = $pedidosDB[$i]->combo[$j]->name;
-                $pedidos[$i]->combo[$j]->quantidade = $pedidosDB[$i]->combo[$j]->pivot->amount;
+            foreach($pedidosDB[$i]->combo as $comboDB)
+            {
+                foreach($comboDB->item as $itemDB)
+                {
+                    $item = new \stdClass();
+                    $item->nome = $itemDB->name;
+                    $item->quantidade = $itemDB->pivot->amount * $comboDB->pivot->amount;
+
+                    $pedidos[$i]->item[] = $item;
+                }
             }
         }
 
